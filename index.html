@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nicolás Torres · Portafolio</title>
-<meta name="description" content="Portafolio de Nicolás Torres: branding, ilustración y 3D.">
+<meta name="description" content="Portafolio de Nicolás Torres (rayt0o): branding, ilustración y 3D.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Space+Mono:wght@400;700&amp;display=swap">
@@ -12,24 +12,39 @@
 body{margin:0;background:#07070B}
 a{color:#6FD3FF}a:hover{color:#F2F2F7}
 .chrome{background:linear-gradient(180deg,#FFFFFF 0%,#D9DAE4 35%,#8A8DA0 55%,#E6E7EF 80%,#FFFFFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.grid-proj{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.card-wide{grid-column:span 2}
-.card{text-decoration:none;color:#F2F2F7;display:flex;flex-direction:column;background:#101019;border:1px solid #262640;border-radius:4px;position:relative;overflow:hidden}
-.card:hover{border-color:#2B4BFF;color:#F2F2F7}
-.pill{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;padding:12px 18px;min-height:44px;border-radius:3px;cursor:pointer;box-sizing:border-box}
-.pill-on{background:#2B4BFF;color:#FFFFFF;border:1px solid #2B4BFF}
-.pill-off{background:transparent;color:#C9C9DA;border:1px solid #262640}
-.pill-off:hover{border-color:#2B4BFF;color:#F2F2F7}
-.bg-trama{background:radial-gradient(circle at 40% 40%,rgba(89,15,188,0.75),#0B0B12 70%)}
-.bg-cueva{background:radial-gradient(circle at 50% 40%,rgba(43,75,255,0.5),#0B0B12 70%)}
-.bg-empresa{background:radial-gradient(circle at 50% 40%,rgba(111,211,255,0.35),#0B0B12 70%)}
-.bg-silencio{background:radial-gradient(circle at 50% 40%,rgba(255,42,42,0.25),#0B0B12 70%)}
-.bg-bogota{background:radial-gradient(circle at 50% 40%,rgba(185,168,255,0.3),#0B0B12 70%)}
-.bg-lab{background:radial-gradient(circle at 50% 40%,rgba(30,160,255,0.35),#0B0B12 70%)}
+.mono{font-family:'Space Mono',monospace;letter-spacing:0.18em;text-transform:uppercase}
+.disp{font-family:'Big Shoulders Display',sans-serif;font-weight:900}
+.ph{border:1px solid rgba(242,242,247,0.14);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.12em;color:rgba(242,242,247,0.6);text-align:center;padding:0 20px;position:relative;box-sizing:border-box}
+.wrap{max-width:1280px;margin:0 auto;padding-left:40px;padding-right:40px}
+.cover{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center}
+.cover-img{grid-column:span 6}
+.cover-txt{grid-column:span 6}
+.about{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:40px}
+.about-img{grid-column:span 5}
+.about-txt{grid-column:span 7}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.chap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:40px;align-items:center}
+.chap-txt{grid-column:span 5}
+.chap-img{grid-column:span 7}
+.rev .chap-txt{order:2}
+.rev .chap-img{order:1}
+.thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.collage{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:160px;gap:16px}
+.c-a{grid-column:span 3;grid-row:span 3}
+.c-b{grid-column:span 3;grid-row:span 2}
+.c-c{grid-column:span 2;grid-row:span 2}
+.c-d{grid-column:span 1;grid-row:span 2}
+.c-e{grid-column:span 2;grid-row:span 2}
+.c-f{grid-column:span 4;grid-row:span 2}
+.w-trama{--acc:#8B4DFF;background:radial-gradient(ellipse at 70% 30%,rgba(89,15,188,0.55),#07070B 65%)}
+.w-cueva{--acc:#4F6BFF;background:radial-gradient(ellipse at 30% 30%,rgba(43,75,255,0.45),#07070B 65%)}
+.w-empresa{--acc:#6FD3FF;background:radial-gradient(ellipse at 70% 30%,rgba(111,211,255,0.25),#07070B 65%)}
+.w-bogota{--acc:#B9A8FF;background:radial-gradient(ellipse at 30% 30%,rgba(185,168,255,0.3),#07070B 65%)}
+.w-silencio{--acc:#FF4A4A;background:radial-gradient(ellipse at 70% 40%,rgba(255,42,42,0.22),#07070B 65%)}
+.cta{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;text-decoration:none;font-family:'Space Mono',monospace;font-size:14px;letter-spacing:0.12em;border-radius:3px}
 .navlink{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;color:#9C9CB4;padding:12px 4px}
 .navlink:hover{color:#F2F2F7}
-.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
-@media (max-width:900px){.grid-proj{grid-template-columns:repeat(1,minmax(0,1fr))}.card-wide{grid-column:span 1}.two{grid-template-columns:repeat(1,minmax(0,1fr))}.hero-title{font-size:96px !important}.nav{display:none !important}}
+@media (max-width:900px){.cover-img,.cover-txt,.about-img,.about-txt,.chap-txt,.chap-img{grid-column:span 12}.rev .chap-txt{order:1}.rev .chap-img{order:2}.facts{grid-template-columns:repeat(1,minmax(0,1fr))}.collage{grid-template-columns:repeat(2,minmax(0,1fr))}.c-a,.c-b,.c-c,.c-d,.c-e,.c-f{grid-column:span 1;grid-row:span 2}.big{font-size:120px !important}.nav{display:none !important}}
 </style>
 
 </head>
@@ -37,249 +52,214 @@ a{color:#6FD3FF}a:hover{color:#F2F2F7}
 
 <div style="background: #07070B; color: #F2F2F7; font-family: 'Space Grotesk', sans-serif; position: relative; overflow: hidden">
 
-<div aria-hidden="true" style="position: absolute; top: -280px; left: 10%; width: 900px; height: 600px; background: radial-gradient(closest-side, rgba(43,75,255,0.35), rgba(43,75,255,0)); pointer-events: none"></div>
-<div aria-hidden="true" style="position: absolute; top: 40px; right: -160px; width: 360px; height: 360px; background: radial-gradient(closest-side, rgba(255,42,42,0.12), rgba(255,42,42,0)); pointer-events: none"></div>
-
-<header style="max-width: 1280px; margin: 0 auto; padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; position: relative">
-<a href="#inicio" style="display: flex; align-items: center; gap: 14px; text-decoration: none; color: #F2F2F7">
-<svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1 L24 16 L39 20 L24 24 L20 39 L16 24 L1 20 L16 16 Z" fill="none" stroke="#6FD3FF" stroke-width="1.5"></path><ellipse cx="20" cy="20" rx="7" ry="4" fill="none" stroke="#F2F2F7" stroke-width="1.5"></ellipse><circle cx="20" cy="20" r="2.2" fill="#2B4BFF"></circle></svg>
-<span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.04em">NICOLÁS TORRES</span>
+<header class="wrap" style="padding-top: 28px; padding-bottom: 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; position: relative; z-index: 2">
+<a href="#portada" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #F2F2F7">
+<svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1 L24 16 L39 20 L24 24 L20 39 L16 24 L1 20 L16 16 Z" fill="none" stroke="#6FD3FF" stroke-width="1.5"></path><ellipse cx="20" cy="20" rx="7" ry="4" fill="none" stroke="#F2F2F7" stroke-width="1.5"></ellipse><circle cx="20" cy="20" r="2.2" fill="#2B4BFF"></circle></svg>
+<span class="mono" style="font-size: 13px">RAYT0O</span>
 </a>
-<nav class="nav" style="display: flex; gap: 28px; align-items: center">
-<a class="navlink" href="#proyectos">Proyectos</a>
+<nav class="nav" style="display: flex; gap: 26px">
 <a class="navlink" href="#sobre">Sobre mí</a>
+<a class="navlink" href="#proyectos">Proyectos</a>
+<a class="navlink" href="#independientes">Independientes</a>
 <a class="navlink" href="#contacto">Contacto</a>
 </nav>
 </header>
 
-<section id="inicio" style="max-width: 1280px; margin: 0 auto; padding: 64px 40px 96px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center; position: relative">
-<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
-<div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.2em; color: #6FD3FF">✦ PORTAFOLIO · 2026 · BOGOTÁ</div>
-<h1 class="chrome hero-title" style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 168px; line-height: 0.95; letter-spacing: 0.01em">DISEÑO<br>QUE NO<br>SE BORRA</h1>
-<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #C9C9DA; max-width: 560px">Soy Nicolás, diseñador gráfico. Hago branding, ilustración y 3D: marcas con carácter, personajes y mundos que se pueden girar con el mouse.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 14px">
-<a href="#proyectos" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 24px; background: #2B4BFF; color: #FFFFFF; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 14px; letter-spacing: 0.12em; border-radius: 3px; box-shadow: 0 0 32px rgba(43,75,255,0.55)">VER PROYECTOS →</a>
-<a href="#contacto" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border: 1px solid #262640; color: #F2F2F7; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 14px; letter-spacing: 0.12em; border-radius: 3px">CONTACTO</a>
+<section id="portada" style="position: relative">
+<div aria-hidden="true" style="position: absolute; top: -200px; right: 0; width: 900px; height: 700px; background: radial-gradient(closest-side, rgba(43,75,255,0.38), rgba(43,75,255,0)); pointer-events: none"></div>
+<div class="wrap cover" style="padding-top: 24px; padding-bottom: 72px; position: relative">
+<div class="cover-img">
+<div class="ph" style="height: 640px; background: radial-gradient(circle at 50% 40%, rgba(30,160,255,0.25), #101019 70%)">
+[ TU AUTORRETRATO ILUSTRADO, CORTADO SOBRE EL FONDO ]
+<div aria-hidden="true" style="position: absolute; top: 12px; left: 12px; width: 20px; height: 20px; border-top: 2px solid #2B4BFF; border-left: 2px solid #2B4BFF"></div>
+<div aria-hidden="true" style="position: absolute; bottom: 12px; right: 12px; width: 20px; height: 20px; border-bottom: 2px solid #FF2A2A; border-right: 2px solid #FF2A2A"></div>
 </div>
 </div>
-<div style="flex: 1 1 380px; min-width: 0; position: relative; height: 460px; border: 1px solid #262640; border-radius: 4px; background: radial-gradient(circle at 50% 45%, rgba(30,160,255,0.28), rgba(16,16,25,1) 62%); display: flex; align-items: center; justify-content: center">
-<svg width="220" height="220" viewBox="0 0 100 100" aria-hidden="true" style="position: absolute; top: 40px; left: 50%; margin-left: -110px; opacity: 0.9"><defs><linearGradient id="cr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset="0.45" stop-color="#8A8DA0"></stop><stop offset="0.7" stop-color="#C8B8FF"></stop><stop offset="1" stop-color="#9FE8FF"></stop></linearGradient></defs><path d="M50 2 L58 42 L98 50 L58 58 L50 98 L42 58 L2 50 L42 42 Z" fill="url(#cr)"></path></svg>
-<div style="position: absolute; bottom: 28px; left: 28px; right: 28px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #9C9CB4; text-align: center">[ RENDER 3D DE TU LOGO O DE NYX FLOTANDO · SE PUEDE GIRAR ]</div>
-<div aria-hidden="true" style="position: absolute; top: 12px; left: 12px; width: 18px; height: 18px; border-top: 2px solid #2B4BFF; border-left: 2px solid #2B4BFF"></div>
-<div aria-hidden="true" style="position: absolute; bottom: 12px; right: 12px; width: 18px; height: 18px; border-bottom: 2px solid #FF2A2A; border-right: 2px solid #FF2A2A"></div>
-</div>
-</section>
-
-<div style="border-top: 1px solid #262640; border-bottom: 1px solid #262640; padding: 18px 0; overflow: hidden; white-space: nowrap; transform: skewY(-1.2deg); background: #0B0B12">
-<span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.06em; color: #F2F2F7">BRANDING <span style="color: #2B4BFF">✦</span> ILUSTRACIÓN <span style="color: #2B4BFF">✦</span> 3D <span style="color: #2B4BFF">✦</span> REALIDAD AUMENTADA <span style="color: #FF2A2A">✦</span> BRANDING <span style="color: #2B4BFF">✦</span> ILUSTRACIÓN <span style="color: #2B4BFF">✦</span> 3D <span style="color: #2B4BFF">✦</span> REALIDAD AUMENTADA</span>
-</div>
-
-<section id="proyectos" style="max-width: 1280px; margin: 0 auto; padding: 120px 40px 80px; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
-<div style="display: flex; flex-direction: column; gap: 10px">
-<div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.2em; color: #6FD3FF">01 · TRABAJO SELECCIONADO</div>
-<h2 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 88px; line-height: 0.9">PROYECTOS</h2>
-</div>
-<div role="group" aria-label="Filtrar proyectos" style="display: flex; flex-wrap: wrap; gap: 10px">
-<button type="button" class="pill pill-on" data-filter="todos" aria-pressed="true">Todos</button>
-<button type="button" class="pill pill-off" data-filter="branding" aria-pressed="false">Branding</button>
-<button type="button" class="pill pill-off" data-filter="ilustracion" aria-pressed="false">Ilustración</button>
-<button type="button" class="pill pill-off" data-filter="3d" aria-pressed="false">3D</button>
-
+<div class="cover-txt" style="display: flex; flex-direction: column; gap: 22px">
+<div class="mono" style="font-size: 13px; color: #6FD3FF">✦ 2026 · Branding / Ilustración / 3D</div>
+<h1 class="chrome disp big" style="margin: 0; font-size: 200px; line-height: 0.84">PORTA<br>FOLIO</h1>
+<div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap">
+<span class="disp" style="font-size: 40px; letter-spacing: 0.03em">NICOLÁS TORRES</span>
+<span class="mono" style="font-size: 13px; color: #9C9CB4">@RAYT0O · BOGOTÁ</span>
 </div>
 </div>
-
-<div class="grid-proj">
-
-<a class="card card-wide" data-cats="branding 3d" data-wide="1" href="trama.html">
-<div class="thumb bg-trama" style="height: 280px; position: relative; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #262640">
-<span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: rgba(242,242,247,0.75); text-align: center; padding: 0 24px">[ PORTADA: NYX + LOGO TRAMA ]</span>
-<span style="position: absolute; top: 16px; left: 18px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 22px; color: rgba(242,242,247,0.9)">01</span>
-</div>
-<div style="padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
-<h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.02em; line-height: 1">TRAMA</h3>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #9C9CB4">2026</span>
-</div>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #B4B4C8">Editorial digital de narrativa visual. Identidad, mascota 3D y carta coleccionable con realidad aumentada.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px">
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">Branding</span>
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">3D</span>
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">AR</span>
-
-</div>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #6FD3FF; margin-top: 6px">VER CASO →</span>
-</div>
-</a>
-
-<a class="card" data-cats="branding 3d" href="#proyectos">
-<div class="thumb bg-cueva" style="height: 280px; position: relative; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #262640">
-<span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: rgba(242,242,247,0.75); text-align: center; padding: 0 24px">[ LOGO Y STANDS 3D ]</span>
-<span style="position: absolute; top: 16px; left: 18px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 22px; color: rgba(242,242,247,0.9)">02</span>
-</div>
-<div style="padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
-<h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.02em; line-height: 1">CUEVA PINTADA</h3>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #9C9CB4">2024</span>
-</div>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #B4B4C8">Branding de un festival de arte urbano llevado a escenarios 3D, con mascotas y prototipo web.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px">
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">Branding</span>
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">3D</span>
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">Mascotas</span>
-
-</div>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #6FD3FF; margin-top: 6px">PRÓXIMAMENTE</span>
-</div>
-</a>
-
-<a class="card" data-cats="branding" href="#proyectos">
-<div class="thumb bg-empresa" style="height: 280px; position: relative; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #262640">
-<span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: rgba(242,242,247,0.75); text-align: center; padding: 0 24px">[ MOCKUPS DEL REBRANDING ]</span>
-<span style="position: absolute; top: 16px; left: 18px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 22px; color: rgba(242,242,247,0.9)">03</span>
-</div>
-<div style="padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
-<h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.02em; line-height: 1">[EMPRESA]</h3>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #9C9CB4">2026</span>
-</div>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #B4B4C8">Rebranding completo: manual de marca, papelería, recursos y piezas para redes.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px">
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">Branding</span>
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">Manual</span>
-
-</div>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #6FD3FF; margin-top: 6px">PRÓXIMAMENTE</span>
-</div>
-</a>
-
-<a class="card" data-cats="ilustracion" href="#proyectos">
-<div class="thumb bg-silencio" style="height: 280px; position: relative; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #262640">
-<span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: rgba(242,242,247,0.75); text-align: center; padding: 0 24px">[ VIÑETAS DE SILENCIO ]</span>
-<span style="position: absolute; top: 16px; left: 18px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 22px; color: rgba(242,242,247,0.9)">04</span>
-</div>
-<div style="padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
-<h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.02em; line-height: 1">SILENCIO</h3>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #9C9CB4">2024</span>
-</div>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #B4B4C8">Proyecto ilustrativo: una historia contada en viñetas, luz y atmósfera.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px">
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">Ilustración</span>
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">Narrativa</span>
-
-</div>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #6FD3FF; margin-top: 6px">PRÓXIMAMENTE</span>
-</div>
-</a>
-
-<a class="card" data-cats="branding ilustracion" href="#proyectos">
-<div class="thumb bg-bogota" style="height: 280px; position: relative; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #262640">
-<span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: rgba(242,242,247,0.75); text-align: center; padding: 0 24px">[ LOGO + CAPI ]</span>
-<span style="position: absolute; top: 16px; left: 18px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 22px; color: rgba(242,242,247,0.9)">05</span>
-</div>
-<div style="padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
-<h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.02em; line-height: 1">BOGOTÁ 2027</h3>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #9C9CB4">2024</span>
-</div>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #B4B4C8">Identidad para unos Juegos Panamericanos (académico): logo, pictogramas y la mascota Capi.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px">
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">Branding</span>
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">Mascota</span>
-
-</div>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #6FD3FF; margin-top: 6px">PRÓXIMAMENTE</span>
-</div>
-</a>
-
-<a class="card" data-cats="3d ilustracion" href="#proyectos">
-<div class="thumb bg-lab" style="height: 280px; position: relative; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #262640">
-<span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: rgba(242,242,247,0.75); text-align: center; padding: 0 24px">[ RENDERS DE BLENDER ]</span>
-<span style="position: absolute; top: 16px; left: 18px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 22px; color: rgba(242,242,247,0.9)">06</span>
-</div>
-<div style="padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
-<h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.02em; line-height: 1">LAB 3D</h3>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #9C9CB4">2026</span>
-</div>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #B4B4C8">Experimentos en Blender: objetos, personajes y piezas de la visera y la moto.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px">
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">3D</span>
-
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9A8FF; border: 1px solid #3A3460; padding: 5px 9px; border-radius: 2px">Blender</span>
-
-</div>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #6FD3FF; margin-top: 6px">PRÓXIMAMENTE</span>
-</div>
-</a>
 </div>
 </section>
 
-<section id="sobre" style="max-width: 1280px; margin: 0 auto; padding: 80px 40px">
-<div class="two" style="border-top: 1px solid #262640; padding-top: 64px">
-<div style="display: flex; flex-direction: column; gap: 20px">
-<div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.2em; color: #6FD3FF">02 · SOBRE MÍ</div>
-<h2 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 72px; line-height: 0.92">NICOLÁS<br>TORRES</h2>
-<div style="width: 100%; height: 300px; border: 1px solid #262640; border-radius: 4px; background: #101019; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #9C9CB4">[ TU AUTORRETRATO ILUSTRADO ]</div>
-</div>
-<div style="display: flex; flex-direction: column; gap: 28px; justify-content: flex-end">
-<p style="margin: 0; font-size: 20px; line-height: 1.6; color: #D6D6E4">Diseñador gráfico en Bogotá. Me muevo entre el branding, la ilustración y el 3D, y me gusta que una marca no se quede en el papel: que tenga personaje, movimiento y, si se puede, que salga de la pantalla.</p>
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9C9CB4">[ 1 o 2 líneas tuyas: qué te mueve, dónde trabajas hoy, qué tipo de proyectos buscas ]</p>
+<div aria-hidden="true" style="height: 28px; transform: rotate(-1deg)"><svg width="100%" height="28"><defs><pattern id="bw1" width="90" height="28" patternUnits="userSpaceOnUse"><path d="M0 14 H90" stroke="#8A8DA0" stroke-width="1.5" fill="none"></path><path d="M40 5 L50 23 M50 5 L40 23" stroke="#D9DAE4" stroke-width="1.5" fill="none"></path></pattern></defs><rect width="100%" height="28" fill="url(#bw1)"></rect></svg></div>
+
+<section id="sobre" class="wrap" style="padding-top: 104px; padding-bottom: 104px">
+<div class="about">
+<div class="about-img"><div class="ph" style="height: 560px; background: #101019">[ AUTORRETRATO 2: BOCETO A LÍNEA CON TOQUES AZULES ]</div></div>
+<div class="about-txt" style="display: flex; flex-direction: column; gap: 32px; justify-content: center">
+<div class="mono" style="font-size: 13px; color: #6FD3FF">01 · Sobre mí</div>
+<h2 class="disp" style="margin: 0; font-size: 104px; line-height: 0.88">NICOLÁS<br>TORRES</h2>
+<p style="margin: 0; font-size: 21px; line-height: 1.55; color: #D6D6E4; max-width: 620px">Diseñador gráfico en Bogotá. Construyo marcas, personajes y mundos: del boceto a la identidad, y de la identidad al 3D.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9C9CB4">[ 1 o 2 líneas tuyas con tu voz ]</p>
+<div class="facts" style="border-top: 1px solid #262640; padding-top: 28px">
 <div style="display: flex; flex-direction: column; gap: 12px">
-<div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: #9C9CB4">HERRAMIENTAS</div>
-<div style="display: flex; flex-wrap: wrap; gap: 10px">
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; padding: 10px 14px; border: 1px solid #262640; border-radius: 3px">ILLUSTRATOR</span>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; padding: 10px 14px; border: 1px solid #262640; border-radius: 3px">PHOTOSHOP</span>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; padding: 10px 14px; border: 1px solid #262640; border-radius: 3px">AFFINITY</span>
-<span style="font-family: 'Space Mono', monospace; font-size: 13px; padding: 10px 14px; border: 1px solid #2B4BFF; color: #6FD3FF; border-radius: 3px">BLENDER</span>
+<span class="mono" style="font-size: 12px; color: #9C9CB4">Programas</span>
+<span style="font-size: 16px; line-height: 1.7">Illustrator<br>Photoshop<br>Affinity<br><span style="color: #6FD3FF">Blender</span></span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span class="mono" style="font-size: 12px; color: #9C9CB4">Idiomas</span>
+<span style="font-size: 16px; line-height: 1.7">Español · nativo<br>Inglés · [NIVEL]</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span class="mono" style="font-size: 12px; color: #9C9CB4">Contacto</span>
+<span style="font-size: 16px; line-height: 1.7">[TU CORREO]<br><a href="https://instagram.com/rayt0o">@rayt0o</a><br>Bogotá, Colombia</span>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<section id="contacto" style="max-width: 1280px; margin: 0 auto; padding: 80px 40px 64px">
-<div style="position: relative; border: 1px solid #262640; border-radius: 4px; padding: 72px 48px; background: radial-gradient(ellipse at 50% 0%, rgba(43,75,255,0.3), rgba(16,16,25,1) 70%); display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
-<div aria-hidden="true" style="position: absolute; top: 14px; left: 14px; width: 20px; height: 20px; border-top: 2px solid #2B4BFF; border-left: 2px solid #2B4BFF"></div>
-<div aria-hidden="true" style="position: absolute; bottom: 14px; right: 14px; width: 20px; height: 20px; border-bottom: 2px solid #FF2A2A; border-right: 2px solid #FF2A2A"></div>
-<div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.2em; color: #6FD3FF">03 · CONTACTO</div>
-<h2 class="chrome" style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 112px; line-height: 0.88">¿HACEMOS<br>ALGO?</h2>
-<div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center">
-<a href="mailto:" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; background: #2B4BFF; color: #FFFFFF; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 14px; letter-spacing: 0.1em; border-radius: 3px; box-shadow: 0 0 32px rgba(43,75,255,0.55)">[ TU CORREO ]</a>
-<a href="https://instagram.com/rayt0o" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border: 1px solid #262640; color: #F2F2F7; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 14px; letter-spacing: 0.1em; border-radius: 3px">INSTAGRAM @RAYT0O</a>
-<a href="https://www.behance.net/gallery/194131263/Portafolio-Diseno-Grafico" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border: 1px solid #262640; color: #F2F2F7; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 14px; letter-spacing: 0.1em; border-radius: 3px">BEHANCE</a>
+<div id="proyectos" class="wrap" style="padding-top: 24px; padding-bottom: 8px; display: flex; flex-direction: column; gap: 10px">
+<div class="mono" style="font-size: 13px; color: #6FD3FF">02 · Proyectos</div>
+</div>
+
+
+<section class="w-trama" style="border-top: 1px solid #262640">
+<div class="wrap chap " style="padding-top: 112px; padding-bottom: 112px">
+<div class="chap-txt" style="display: flex; flex-direction: column; gap: 22px">
+<span class="disp" style="font-size: 72px; line-height: 1; color: var(--acc)">01</span>
+<h3 class="disp" style="margin: 0; font-size: 92px; line-height: 0.88">TRAMA</h3>
+<span class="mono" style="font-size: 12px; color: #9C9CB4">Proyecto Integra · 2025–2026 · Editorial digital</span>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #D6D6E4">Una editorial de narrativa visual pensada para el celular. Cada historia es una puerta sellada, y el lector tiene la llave.</p>
+<span style="font-size: 15px; line-height: 1.6; color: #B4B4C8"><span class="mono" style="font-size: 11px; color: var(--acc)">Mi rol · </span>branding, Nyx en 3D y la carta con realidad aumentada.</span>
+<a class="cta" href="trama.html" style="align-self: flex-start; border: 1px solid var(--acc); color: #F2F2F7; margin-top: 6px">VER CASO →</a>
+</div>
+<div class="chap-img" style="display: flex; flex-direction: column; gap: 12px">
+<div class="ph" style="height: 460px; background: rgba(16,16,25,0.6)">[ NYX + LOGO TRAMA ]</div>
+<div class="thumbs">
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ SISTEMA DE IDENTIDAD ]</div>
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ NYX EN BLENDER ]</div>
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ CARTA AR ]</div>
+</div>
 </div>
 </div>
 </section>
 
-<footer style="max-width: 1280px; margin: 0 auto; padding: 32px 40px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #9C9CB4">
+<section class="w-cueva" style="border-top: 1px solid #262640">
+<div class="wrap chap rev" style="padding-top: 112px; padding-bottom: 112px">
+<div class="chap-txt" style="display: flex; flex-direction: column; gap: 22px">
+<span class="disp" style="font-size: 72px; line-height: 1; color: var(--acc)">02</span>
+<h3 class="disp" style="margin: 0; font-size: 92px; line-height: 0.88">CUEVA PINTADA</h3>
+<span class="mono" style="font-size: 12px; color: #9C9CB4">Proyecto Integra · 2024 · Festival de arte urbano</span>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #D6D6E4">La identidad de un festival de arte urbano llevada a escenarios 3D, con mascotas y prototipo web.</p>
+<span style="font-size: 15px; line-height: 1.6; color: #B4B4C8"><span class="mono" style="font-size: 11px; color: var(--acc)">Mi rol · </span>[ QUÉ HICISTE TÚ ]</span>
+<a class="cta" href="#proyectos" style="align-self: flex-start; border: 1px solid var(--acc); color: #F2F2F7; margin-top: 6px">PRÓXIMAMENTE</a>
+</div>
+<div class="chap-img" style="display: flex; flex-direction: column; gap: 12px">
+<div class="ph" style="height: 460px; background: rgba(16,16,25,0.6)">[ LOGO Y STANDS 3D ]</div>
+<div class="thumbs">
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ MASCOTAS ]</div>
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ POSTERS ]</div>
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ PROTOTIPO WEB ]</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="w-empresa" style="border-top: 1px solid #262640">
+<div class="wrap chap " style="padding-top: 112px; padding-bottom: 112px">
+<div class="chap-txt" style="display: flex; flex-direction: column; gap: 22px">
+<span class="disp" style="font-size: 72px; line-height: 1; color: var(--acc)">03</span>
+<h3 class="disp" style="margin: 0; font-size: 92px; line-height: 0.88">[EMPRESA]</h3>
+<span class="mono" style="font-size: 12px; color: #9C9CB4">Rebranding · 2026</span>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #D6D6E4">Rebranding completo de la empresa: manual de marca, papelería, recursos gráficos y piezas para redes.</p>
+<span style="font-size: 15px; line-height: 1.6; color: #B4B4C8"><span class="mono" style="font-size: 11px; color: var(--acc)">Mi rol · </span>todo el rebranding.</span>
+<a class="cta" href="#proyectos" style="align-self: flex-start; border: 1px solid var(--acc); color: #F2F2F7; margin-top: 6px">PRÓXIMAMENTE</a>
+</div>
+<div class="chap-img" style="display: flex; flex-direction: column; gap: 12px">
+<div class="ph" style="height: 460px; background: rgba(16,16,25,0.6)">[ MOCKUPS DEL REBRANDING ]</div>
+<div class="thumbs">
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ MANUAL ]</div>
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ PAPELERÍA ]</div>
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ REDES ]</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="w-bogota" style="border-top: 1px solid #262640">
+<div class="wrap chap rev" style="padding-top: 112px; padding-bottom: 112px">
+<div class="chap-txt" style="display: flex; flex-direction: column; gap: 22px">
+<span class="disp" style="font-size: 72px; line-height: 1; color: var(--acc)">04</span>
+<h3 class="disp" style="margin: 0; font-size: 92px; line-height: 0.88">BOGOTÁ 2027</h3>
+<span class="mono" style="font-size: 12px; color: #9C9CB4">Proyecto académico · 2024 · Juegos Panamericanos</span>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #D6D6E4">Identidad para unos Juegos Panamericanos en Bogotá: un logo basado en la orquídea, pictogramas y la mascota Capi.</p>
+<span style="font-size: 15px; line-height: 1.6; color: #B4B4C8"><span class="mono" style="font-size: 11px; color: var(--acc)">Mi rol · </span>[ QUÉ HICISTE TÚ ]</span>
+<a class="cta" href="#proyectos" style="align-self: flex-start; border: 1px solid var(--acc); color: #F2F2F7; margin-top: 6px">PRÓXIMAMENTE</a>
+</div>
+<div class="chap-img" style="display: flex; flex-direction: column; gap: 12px">
+<div class="ph" style="height: 460px; background: rgba(16,16,25,0.6)">[ LOGO + CAPI ]</div>
+<div class="thumbs">
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ PICTOGRAMAS ]</div>
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ UNIFORMES ]</div>
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ MERCH ]</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="w-silencio" style="border-top: 1px solid #262640">
+<div class="wrap chap " style="padding-top: 112px; padding-bottom: 112px">
+<div class="chap-txt" style="display: flex; flex-direction: column; gap: 22px">
+<span class="disp" style="font-size: 72px; line-height: 1; color: var(--acc)">05</span>
+<h3 class="disp" style="margin: 0; font-size: 92px; line-height: 0.88">SILENCIO</h3>
+<span class="mono" style="font-size: 12px; color: #9C9CB4">Proyecto ilustrativo · 2024</span>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #D6D6E4">Una historia contada en viñetas, con luz, humo y atmósfera.</p>
+<span style="font-size: 15px; line-height: 1.6; color: #B4B4C8"><span class="mono" style="font-size: 11px; color: var(--acc)">Mi rol · </span>ilustración y narrativa.</span>
+<a class="cta" href="#proyectos" style="align-self: flex-start; border: 1px solid var(--acc); color: #F2F2F7; margin-top: 6px">PRÓXIMAMENTE</a>
+</div>
+<div class="chap-img" style="display: flex; flex-direction: column; gap: 12px">
+<div class="ph" style="height: 460px; background: rgba(16,16,25,0.6)">[ VIÑETA PRINCIPAL ]</div>
+<div class="thumbs">
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ VIÑETA ]</div>
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ VIÑETA ]</div>
+<div class="ph" style="height: 140px; background: rgba(16,16,25,0.6)">[ VIÑETA ]</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<div aria-hidden="true" style="height: 28px; transform: rotate(1deg)"><svg width="100%" height="28"><defs><pattern id="bw2" width="90" height="28" patternUnits="userSpaceOnUse"><path d="M0 14 H90" stroke="#8A8DA0" stroke-width="1.5" fill="none"></path><path d="M40 5 L50 23 M50 5 L40 23" stroke="#D9DAE4" stroke-width="1.5" fill="none"></path></pattern></defs><rect width="100%" height="28" fill="url(#bw2)"></rect></svg></div>
+
+<section id="independientes" class="wrap" style="padding-top: 104px; padding-bottom: 104px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="mono" style="font-size: 13px; color: #6FD3FF">03 · Proyectos independientes</div>
+<h2 class="chrome disp" style="margin: 0; font-size: 120px; line-height: 0.86">LO QUE HAGO<br>PORQUE SÍ</h2>
+</div>
+<div class="collage">
+<div class="ph c-a" style="background: #101019">[ EL SOMBRERÓN ]</div>
+<div class="ph c-b" style="background: #101019">[ ILUSTRACIÓN DE LA MOTO ]</div>
+<div class="ph c-c" style="background: #101019">[ VULTURES ]</div>
+<div class="ph c-d" style="background: #101019">[ RETRATO ]</div>
+<div class="ph c-e" style="background: #101019">[ DISEÑO DE LA VISERA ]</div>
+<div class="ph c-f" style="background: #101019">[ ÍCONOS ILUSTRADOS / RENDERS ]</div>
+</div>
+</section>
+
+<section id="contacto" style="border-top: 1px solid #262640; background: radial-gradient(ellipse at 50% 0%, rgba(43,75,255,0.3), #07070B 65%)">
+<div class="wrap" style="padding-top: 120px; padding-bottom: 96px; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
+<svg width="72" height="72" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="cr2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset="0.5" stop-color="#8A8DA0"></stop><stop offset="1" stop-color="#9FE8FF"></stop></linearGradient></defs><path d="M50 2 L58 42 L98 50 L58 58 L50 98 L42 58 L2 50 L42 42 Z" fill="url(#cr2)"></path></svg>
+<h2 class="chrome disp big" style="margin: 0; font-size: 168px; line-height: 0.86">GRACIAS<br>POR VER</h2>
+<span class="disp" style="font-size: 36px; letter-spacing: 0.06em">@RAYT0O</span>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 8px">
+<a class="cta" href="mailto:" style="background: #2B4BFF; color: #FFFFFF; box-shadow: 0 0 32px rgba(43,75,255,0.55)">[ TU CORREO ]</a>
+<a class="cta" href="https://instagram.com/rayt0o" style="border: 1px solid #262640; color: #F2F2F7">INSTAGRAM</a>
+<a class="cta" href="https://www.behance.net/gallery/194131263/Portafolio-Diseno-Grafico" style="border: 1px solid #262640; color: #F2F2F7">BEHANCE</a>
+</div>
+</div>
+</section>
+
+<footer class="wrap" style="padding-top: 28px; padding-bottom: 44px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #9C9CB4">
 <span>© 2026 NICOLÁS TORRES</span>
-<span>HECHO A MANO EN BOGOTÁ <span style="color: #FF2A2A">✦</span></span>
+<span>BOGOTÁ <span style="color: #FF2A2A">✦</span></span>
 </footer>
 </div>
 
-<script>
-
-var pills=document.querySelectorAll('[data-filter]');var cards=document.querySelectorAll('.card');
-pills.forEach(function(p){p.addEventListener('click',function(){var f=p.getAttribute('data-filter');
-pills.forEach(function(q){var on=q===p;q.classList.toggle('pill-on',on);q.classList.toggle('pill-off',!on);q.setAttribute('aria-pressed',on?'true':'false');});
-cards.forEach(function(c){var show=f==='todos'||c.getAttribute('data-cats').split(' ').indexOf(f)!==-1;c.style.display=show?'':'none';
-if(c.getAttribute('data-wide')){c.classList.toggle('card-wide',f==='todos');}});});});
-
-</script>
 </body>
 </html>
