@@ -601,3 +601,16 @@ a { color: inherit; }
   .about__portrait { max-width: 300px; margin-inline: auto; }
 }
 .about__portrait { width: 100%; }
+
+/* ---------- TRAMA con piezas reales ---------- */
+/* Nyx es horizontal (alas abiertas): el héroe se ensancha en vez de ir en 3:4 */
+.ch-trama .nyx, .case-hero .nyx { width: min(74vw, 1080px); aspect-ratio: 2043 / 1617; }
+@media (max-width: 720px) { .ch-trama .nyx, .case-hero .nyx { width: 96vw; } }
+.slot--figure.is-loaded { outline: 0; }
+.case .slot--figure.is-loaded > img, .ch-trama .slot--figure.is-loaded > img { filter: drop-shadow(0 0 40px rgba(89, 15, 188, .55)); }
+/* logo e isotipo sobre la luz morada del capítulo, sin caja */
+.logo-band.is-loaded { background: radial-gradient(60% 80% at 50% 50%, rgba(89,15,188,.55), transparent 70%); }
+.logo-band.is-loaded > img { object-fit: contain; padding: 6% 18%; }
+.iso-box.is-loaded { background: radial-gradient(closest-side, rgba(89,15,188,.6), transparent); }
+.iso-box.is-loaded > img { padding: 14%; }
+@media (max-width: 720px) { .ch-trama .ficha--tr { display: none; } }
