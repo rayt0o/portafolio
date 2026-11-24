@@ -696,3 +696,40 @@ a { color: inherit; }
   }
   .cover__porta { z-index: 1; }
 }
+
+/* ---------- Recursos de la ilustración principal ----------
+   Llamas azules: trazos sacados de la portada, pegados al borde por donde venían cortados.
+   Ojos: patrón casi del tono del fondo, solo visible en una zona de cada sección. */
+.flame { position: absolute; z-index: -1; pointer-events: none; height: auto; opacity: .9; }
+.fl-bl { left: 0; bottom: 0; transform-origin: 0 100%; }
+.fl-br { right: 0; bottom: 0; transform-origin: 100% 100%; }
+.fl-tr { right: 0; top: 0; transform-origin: 100% 0; }
+.fl-top { top: 0; transform-origin: 50% 0; }
+.fl-r { right: 0; transform-origin: 100% 50%; }
+.f-cover { width: clamp(130px, 16vw, 260px); z-index: 0; }
+.f-about1 { left: 36%; width: clamp(70px, 8vw, 140px); }
+.f-about2 { width: clamp(110px, 13vw, 220px); }
+.f-index { width: clamp(110px, 14vw, 230px); }
+.f-chars { top: 12%; width: clamp(60px, 7vw, 110px); }
+.f-indie1 { top: 6%; width: clamp(90px, 10vw, 170px); }
+.f-indie2 { left: 8%; width: clamp(80px, 8vw, 140px); }
+.f-end1 { width: clamp(150px, 20vw, 320px); }
+.f-end2 { width: clamp(130px, 17vw, 280px); }
+.f-end3 { left: 22%; width: clamp(90px, 10vw, 170px); }
+@media (prefers-reduced-motion: no-preference) {
+  .flame { animation: flameSway 5s ease-in-out infinite alternate; }
+  .flame:nth-of-type(2n) { animation-duration: 6.5s; animation-delay: -2s; }
+}
+@keyframes flameSway { from { transform: skewX(-2deg) scaleY(.98); } to { transform: skewX(2.5deg) scaleY(1.03); } }
+@media (max-width: 720px) {
+  .f-about1 { left: 70%; }
+  .f-end3 { left: 6%; }
+}
+
+.eyes {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: url(../img/patron-ojos.svg) 0 0 / 460px 460px repeat;
+  -webkit-mask-image: radial-gradient(circle at var(--ex, 50%) var(--ey, 50%), #000 0, rgba(0,0,0,.5) 22%, transparent 48%);
+  mask-image: radial-gradient(circle at var(--ex, 50%) var(--ey, 50%), #000 0, rgba(0,0,0,.5) 22%, transparent 48%);
+}
+.floaters .eyes { z-index: 0; }
