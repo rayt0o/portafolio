@@ -910,3 +910,9 @@ canvas.chrome3d.is-grab { cursor: grabbing; }
 .ch-satanae .tarot .tcard .tcard__inner > .tcard__front.slot { left: 0; bottom: 0; transform: rotateY(180deg); box-shadow: none; }
 .ch-satanae .tarot .tcard.is-picked { transform-origin: 50% 50%; transform: translate(0, -62%) scale(1.9); }
 @media (max-width: 860px) { .ch-satanae .tarot .tcard.is-picked { transform: translate(0, -95%) scale(2.2); } }
+/* tarot con el reverso real y nombre del arcano */
+.ch-satanae .tarot .tcard .tcard__inner > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 6px; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 6px 16px rgba(0,0,0,.5); }
+.ch-satanae .tarot .tcard .tcard__inner > img.tcard__front { transform: rotateY(180deg); }
+.tarot__name { position: absolute; left: 50%; bottom: -36px; transform: translateX(-50%); margin: 0; white-space: nowrap; color: var(--text); z-index: 31; }
+@media (max-width: 860px) { .tarot__name { bottom: -30px; font-size: 9px; } }
+.ch-satanae .tarot.has-pick { z-index: 9; }

@@ -90,3 +90,28 @@
     });
   });
 })();
+
+// Tarot de Satanæ v2: al escoger una carta sale un arcano al azar (sin repetir el anterior)
+(function () {
+  var ARCANOS = [['el-loco','0 · El Loco'],['el-mago','I · El Mago'],['la-sacerdotisa','II · La Sacerdotisa'],['la-emperatriz','III · La Emperatriz'],
+    ['el-emperador','IV · El Emperador'],['el-hierofante','V · El Hierofante'],['los-enamorados','VI · Los Enamorados'],['el-carro','VII · El Carro'],
+    ['la-fuerza','VIII · La Fuerza'],['el-ermitano','IX · El Ermitaño'],['la-rueda-de-la-fortuna','X · La Rueda de la Fortuna'],['la-justicia','XI · La Justicia'],
+    ['el-colgado','XII · El Colgado'],['la-muerte','XIII · La Muerte'],['la-templanza','XIV · La Templanza'],['el-diablo','XV · El Diablo'],
+    ['la-torre','XVI · La Torre'],['la-estrella','XVII · La Estrella'],['la-luna','XVIII · La Luna'],['el-sol','XIX · El Sol'],
+    ['el-juicio','XX · El Juicio'],['el-mundo','XXI · El Mundo']];
+  var last = -1;
+  document.querySelectorAll('[data-tarot]').forEach(function (deck) {
+    var name = deck.querySelector('.tarot__name');
+    deck.querySelectorAll('.tcard').forEach(function (c) {
+      c.addEventListener('click', function () {
+        if (!c.classList.contains('is-picked')) { if (name) name.textContent = ''; return; }
+        var k; do { k = Math.floor(Math.random() * ARCANOS.length); } while (k === last); last = k;
+        var front = c.querySelector('.tcard__front');
+        front.src = 'img/tarot/' + ARCANOS[k][0] + '.webp';
+        front.alt = 'Arcano ' + ARCANOS[k][1] + ' del tarot de Satanæ, ilustración de Juliana Vecino';
+        c.setAttribute('aria-label', 'Carta escogida: ' + ARCANOS[k][1]);
+        if (name) name.textContent = ARCANOS[k][1] + ' ✦ Ilustración de Juliana Vecino';
+      });
+    });
+  });
+})();
