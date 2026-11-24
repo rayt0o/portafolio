@@ -190,6 +190,8 @@ async function mount(canvas) {
   // interacción: arrastrar gira, soltar deja inercia; quieto, flota
   let rx = baseX, ry = baseY, vx = 0, vy = 0, drag = false, lx = 0, ly = 0, t0 = performance.now(), idle = 0;
   const spin = canvas.dataset.spin !== 'off';
+  const limX = +(canvas.dataset.limx || 0) * Math.PI / 180;
+  const limY = +(canvas.dataset.limy || 0) * Math.PI / 180;
   canvas.style.touchAction = 'pan-y';
   canvas.addEventListener('pointerdown', e => { drag = true; lx = e.clientX; ly = e.clientY; canvas.setPointerCapture(e.pointerId); canvas.classList.add('is-grab'); });
   canvas.addEventListener('pointermove', e => {
@@ -212,6 +214,9 @@ async function mount(canvas) {
       if (idle > 90) { rx += (baseX - rx) * 0.02; if (!spin) ry += (baseY - ry) * 0.02; }
       if (spin && !reduced) ry += 0.004;
     }
+    // límites de giro (grados) para que nada se salga del recuadro
+    if (limX) { rx = Math.min(baseX + limX, Math.max(baseX - limX, rx)); }
+    if (limY) { ry = Math.min(baseY + limY, Math.max(baseY - limY, ry)); }
     pivot.rotation.set(rx, ry, 0);
     pivot.position.y = reduced ? 0 : Math.sin(t * 1.2) * size.y * 0.025;
     renderer.render(scene, cam);
