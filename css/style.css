@@ -804,3 +804,10 @@ a { color: inherit; }
   -webkit-mask-image: none; mask-image: none;
 }
 @media (max-width: 860px) { .wire-sat { left: 2%; top: 12%; width: 92%; bottom: auto; right: auto; } }
+
+/* ---------- Más aire con los bordes ----------
+   Márgenes laterales más amplios en pantallas grandes y nada de imágenes de lado a lado. */
+:root { --gutter: clamp(20px, 6vw, 120px); }
+.ch-cueva .pano, .full { margin-inline: 0; border-radius: var(--r); }
+.ch-cueva .mega { margin-left: 0; }
+.ch-cueva .pano-cap { padding-inline: 2px; }
