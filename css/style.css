@@ -795,3 +795,12 @@ a { color: inherit; }
 .fl-top, .fl-tr { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 35%); mask-image: linear-gradient(to bottom, transparent 0, #000 35%); }
 .fl-bl, .fl-br { -webkit-mask-image: linear-gradient(to top, transparent 0, #000 35%); mask-image: linear-gradient(to top, transparent 0, #000 35%); }
 .fl-r { -webkit-mask-image: linear-gradient(to left, transparent 0, #000 40%); mask-image: linear-gradient(to left, transparent 0, #000 40%); }
+/* ajuste: púas más presentes (sin tapar) y triángulo de alambre en Satanæ */
+.wire-sep img { opacity: .9; width: min(80vw, 1150px); filter: drop-shadow(0 4px 8px rgba(0,0,0,.5)); }
+@media (max-width: 720px) { .wire-sep img { width: 112vw; } }
+.wire-sat {
+  z-index: -1; top: 6%; bottom: auto; left: 18%; right: auto; width: 52%; opacity: .8;
+  transform: rotate(-6deg); filter: drop-shadow(0 8px 14px rgba(0,0,0,.6));
+  -webkit-mask-image: none; mask-image: none;
+}
+@media (max-width: 860px) { .wire-sat { left: 2%; top: 12%; width: 92%; bottom: auto; right: auto; } }
