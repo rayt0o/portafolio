@@ -640,3 +640,10 @@ a { color: inherit; }
 @media (max-width: 720px) { .seal-corner { bottom: 110px; } }
 .foot__sign { display: inline-flex; align-items: center; gap: 10px; }
 .foot__sign svg { width: 22px; height: 22px; }
+
+/* ---------- Autorretrato real en la portada ----------
+   La caja toma la proporción del busto (1301 × 1443) y la imagen se apoya abajo.
+   Silencio usa la misma caja, así Alex queda a la misma escala. */
+:root { --fig-w: calc(var(--fig-h) * 0.9); }
+.fig-box .slot > img { object-position: 50% 100%; }
+.fig-box .slot.is-loaded { outline: 0; }

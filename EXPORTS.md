@@ -11,8 +11,7 @@ Cada fila es un hueco del sitio. Al dejar el archivo con ese nombre en `img/`, l
 
 | Archivo web | Qué es | Tamaño | Sale de |
 |---|---|---|---|
-| `portada-autorretrato.webp` | Autorretrato ilustrado de Nicolás Torres mirando a cámara | 2400 px alto · PNG transparente | [¿editable del autorretrato?] |
-| `sello.webp` | Sello rayt0o |  |  |
+| `portada-autorretrato.webp` | Autorretrato ilustrado de Nicolás Torres mirando a cámara | 2400 px alto · PNG transparente | mi geto.psb |
 
 ## SOBRE MÍ (index.html)
 
@@ -121,6 +120,7 @@ Cada fila es un hueco del sitio. Al dejar el archivo con ese nombre en `img/`, l
 
 | Archivo web | Qué es | Tamaño | Sale de |
 |---|---|---|---|
+| `sello.webp` | Sello verde de rayt0o | 800 px · PNG | Marca personal/sello.png |
 | `silencio-alex-mirada.webp` |  |  |  |
 
 ## 02 IDENTIDAD (trama.html)
