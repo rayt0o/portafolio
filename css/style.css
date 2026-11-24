@@ -733,3 +733,15 @@ a { color: inherit; }
   mask-image: radial-gradient(circle at var(--ex, 50%) var(--ey, 50%), #000 0, rgba(0,0,0,.5) 22%, transparent 48%);
 }
 .floaters .eyes { z-index: 0; }
+
+/* llamas más sutiles: fondo, no protagonistas */
+.flame { opacity: .32; filter: saturate(.85) blur(.4px); }
+.f-cover { opacity: .22; width: clamp(110px, 12vw, 200px); }
+.f-about1 { width: clamp(56px, 6vw, 110px); }
+.f-about2 { width: clamp(90px, 10vw, 170px); }
+.f-index { width: clamp(90px, 11vw, 180px); }
+.f-indie1 { width: clamp(70px, 8vw, 130px); }
+.f-end1 { width: clamp(120px, 15vw, 240px); opacity: .28; }
+.f-end2 { width: clamp(110px, 13vw, 210px); opacity: .28; }
+.f-end3 { width: clamp(70px, 8vw, 130px); }
+@media (max-width: 720px) { .flame { width: 22vw; max-width: 120px; } .f-cover { width: 26vw; } }
