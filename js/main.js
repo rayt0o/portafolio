@@ -67,3 +67,26 @@
     c.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); } });
   });
 })();
+
+// Tarot de Satanæ: la carta más cercana al cursor se levanta; al tocarla se voltea y pasa al centro
+(function () {
+  document.querySelectorAll('[data-tarot]').forEach(function (deck) {
+    var cards = Array.prototype.slice.call(deck.querySelectorAll('.tcard'));
+    deck.addEventListener('pointermove', function (e) {
+      if (deck.classList.contains('has-pick')) return;
+      var best = null, bd = 1e9;
+      cards.forEach(function (c) { var r = c.getBoundingClientRect(); var d = Math.abs(r.left + r.width / 2 - e.clientX); if (d < bd) { bd = d; best = c; } });
+      cards.forEach(function (c) { c.classList.toggle('is-near', c === best); });
+    });
+    deck.addEventListener('pointerleave', function () { cards.forEach(function (c) { c.classList.remove('is-near'); }); });
+    cards.forEach(function (c) {
+      c.setAttribute('aria-pressed', 'false');
+      c.addEventListener('click', function () {
+        var was = c.classList.contains('is-picked');
+        cards.forEach(function (o) { o.classList.remove('is-picked', 'is-near'); o.setAttribute('aria-pressed', 'false'); });
+        if (!was) { c.classList.add('is-picked'); c.setAttribute('aria-pressed', 'true'); }
+        deck.classList.toggle('has-pick', !was);
+      });
+    });
+  });
+})();

@@ -863,3 +863,50 @@ canvas.chrome3d.is-grab { cursor: grabbing; }
   .obj3d.o2 { width: 120px; height: 120px; left: auto; right: 34%; bottom: 0; }
   .obj3d.o3 { width: 110px; height: 150px; right: 0; bottom: 2%; }
 }
+
+/* ---------- Tarot de Satanæ interactivo ----------
+   Abanico boca abajo; la carta bajo el cursor se levanta; al escogerla se voltea y pasa al centro. */
+.ch-satanae .tarot { perspective: 1600px; }
+.tarot__hint { position: absolute; left: 50%; top: -34px; transform: translateX(-50%); color: var(--lila); margin: 0; white-space: nowrap; transition: opacity .3s; }
+.tarot.has-pick .tarot__hint { opacity: 0; }
+.ch-satanae .tarot .tcard {
+  --a: calc((var(--i) - 3.5) * 6deg);
+  --x: calc((var(--i) - 3.5) * 62%);
+  position: absolute; left: 41.5%; bottom: 0; width: 17%; aspect-ratio: 7 / 12;
+  padding: 0; border: 0; background: none; cursor: pointer; box-shadow: none;
+  transform-origin: 50% 130%;
+  transform: translateX(var(--x)) rotate(var(--a)) translateY(var(--lift, 0%));
+  transition: transform .45s cubic-bezier(.2,.8,.2,1), filter .3s;
+  z-index: calc(var(--i) + 1);
+}
+.ch-satanae .tarot .tcard:hover, .ch-satanae .tarot .tcard:focus-visible, .ch-satanae .tarot .tcard.is-near {
+  --lift: -14%; filter: drop-shadow(0 10px 18px rgba(255,42,42,.35)); outline: none;
+}
+.tcard__inner { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .7s cubic-bezier(.2,.8,.2,1); }
+.tcard__back, .tcard__front { position: absolute; inset: 0; margin: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 4px; }
+.tcard__back {
+  display: grid; place-items: center;
+  background: radial-gradient(circle at 50% 45%, #5a0a12, #1a0306 70%);
+  box-shadow: inset 0 0 0 2px #8a8da0, inset 0 0 0 6px #1a0306, inset 0 0 0 7px rgba(255,42,42,.6);
+}
+.tcard__back svg { width: 46%; fill: #e6e7ef; filter: drop-shadow(0 0 8px rgba(255,42,42,.8)); }
+.tcard__front { transform: rotateY(180deg); }
+/* carta escogida: al centro, grande y volteada */
+.ch-satanae .tarot .tcard.is-picked {
+  z-index: 30; --lift: 0%;
+  transform: translate(0, -46%) rotate(0deg) scale(1.9);
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,.7)) drop-shadow(0 0 30px rgba(255,42,42,.35));
+}
+.tcard.is-picked .tcard__inner { transform: rotateY(180deg); }
+.tarot.has-pick .tcard:not(.is-picked) { filter: brightness(.5); }
+@media (prefers-reduced-motion: reduce) { .ch-satanae .tarot .tcard, .tcard__inner { transition: none; } }
+@media (max-width: 860px) {
+  .ch-satanae .tarot .tcard { width: 19%; }
+  .ch-satanae .tarot .tcard.is-picked { transform: translate(0, -70%) scale(2.3); }
+}
+/* anula las reglas del abanico viejo sobre la cara de la carta */
+.ch-satanae .tarot .tcard__front { position: absolute; inset: 0; left: 0; bottom: 0; width: 100%; height: 100%; aspect-ratio: auto; transform: rotateY(180deg); transform-origin: 50% 50%; }
+/* la regla vieja (.slot:nth-child) tenía más peso: se anula con un selector más específico */
+.ch-satanae .tarot .tcard .tcard__inner > .tcard__front.slot { left: 0; bottom: 0; transform: rotateY(180deg); box-shadow: none; }
+.ch-satanae .tarot .tcard.is-picked { transform-origin: 50% 50%; transform: translate(0, -62%) scale(1.9); }
+@media (max-width: 860px) { .ch-satanae .tarot .tcard.is-picked { transform: translate(0, -95%) scale(2.2); } }
