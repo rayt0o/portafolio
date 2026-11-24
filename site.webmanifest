@@ -1,0 +1,12 @@
+{
+  "name": "Nicolás Torres · rayt0o",
+  "short_name": "rayt0o",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#07070B",
+  "background_color": "#07070B",
+  "display": "standalone",
+  "start_url": "./"
+}

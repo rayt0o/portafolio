@@ -496,7 +496,7 @@ a { color: inherit; }
    CIERRE
    ========================================================= */
 .end { --c: var(--blue); --lx: 50%; --ly: 100%; display: grid; place-items: center; text-align: center; }
-.end .seal { width: clamp(120px, 16vw, 200px); aspect-ratio: 1; border-radius: 50%; margin: 0 auto 18px; }
+
 .end .mega { font-size: clamp(5rem, 17vw, 17rem); }
 .end .handle { font-family: var(--f-mono); letter-spacing: .3em; font-size: 14px; margin: 26px 0 34px; }
 .end .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
@@ -614,3 +614,29 @@ a { color: inherit; }
 .iso-box.is-loaded { background: radial-gradient(closest-side, rgba(89,15,188,.6), transparent); }
 .iso-box.is-loaded > img { padding: 14%; }
 @media (max-width: 720px) { .ch-trama .ficha--tr { display: none; } }
+
+/* ---------- Logo con más presencia ---------- */
+.nav__logo svg { width: 46px; height: 46px; transition: filter .3s, transform .3s; }
+.nav__logo:hover svg, .nav__logo:focus-visible svg { filter: drop-shadow(0 0 10px rgba(22,186,211,.8)); transform: rotate(-8deg); }
+/* sello de la portada */
+.cover__logo { width: 116px; height: 116px; opacity: 1; filter: drop-shadow(0 0 18px rgba(22,186,211,.45)); animation: logoFloat 6s ease-in-out infinite; }
+@keyframes logoFloat { 50% { transform: translateY(-8px) rotate(4deg); } }
+@media (max-width: 720px) { .cover__logo { width: 60px; height: 60px; top: calc(104px + 34vw); } }
+@media (prefers-reduced-motion: reduce) { .cover__logo { animation: none; } }
+/* firma mini en las fichas de cada capítulo */
+.sign::before {
+  content: ""; display: block; width: 26px; height: 26px; margin-bottom: 10px; flex: none;
+  background: url(../logo.svg) center / contain no-repeat;
+}
+.chapter-head.sign::before { margin: 0; }
+.ficha--tr.sign::before { margin-left: auto; }
+/* cierre: logo 3D detrás del título, la espada pasa por detrás de las letras */
+.end__title { position: relative; display: grid; place-items: center; padding-top: clamp(150px, 20vw, 300px); }
+.end__logo { position: absolute; z-index: 0; top: 0; left: 50%; width: clamp(280px, 40vw, 600px); height: auto; transform: translateX(-46%); pointer-events: none; filter: drop-shadow(0 0 40px rgba(43,75,255,.35)); }
+.end__title .mega { position: relative; z-index: 1; }
+.seal-corner { position: absolute; left: calc(var(--gutter) + 6px); bottom: 70px; width: clamp(70px, 8vw, 110px); aspect-ratio: 1; border-radius: 50%; transform: rotate(-12deg); }
+.seal-corner:not(.is-loaded) { outline: 1px dashed var(--line); }
+.seal-corner .slot__info { display: none; }
+@media (max-width: 720px) { .seal-corner { bottom: 110px; } }
+.foot__sign { display: inline-flex; align-items: center; gap: 10px; }
+.foot__sign svg { width: 22px; height: 22px; }
