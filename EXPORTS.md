@@ -11,7 +11,7 @@ Cada fila es un hueco del sitio. Al dejar el archivo con ese nombre en `img/`, l
 
 | Archivo web | Qué es | Tamaño | Sale de |
 |---|---|---|---|
-| `portada-autorretrato.webp` | Autorretrato ilustrado de Nicolás Torres mirando a cámara | 2400 px alto · PNG transparente | mi geto.psb |
+| `portada-autorretrato-mano.webp` | Autorretrato ilustrado de Nicolás Torres visto desde arriba, estirando la mano hacia la cámara entre llamas azules | Ilustración principal | editable en EYE |
 
 ## SOBRE MÍ (index.html)
 
@@ -21,7 +21,7 @@ Cada fila es un hueco del sitio. Al dejar el archivo con ese nombre en `img/`, l
 | `objeto-02.webp` |  | Recorte PNG |  |
 | `objeto-03.webp` |  | Recorte PNG |  |
 | `objeto-04.webp` |  | Recorte PNG |  |
-| `sobre-autorretrato-linea.webp` | Autorretrato a línea de Nicolás Torres | 1600 × 2000 px · PNG transparente | [¿editable?] |
+| `sobre-autorretrato.webp` | Autorretrato de Nicolás Torres en busto, sonriendo | PNG transparente | mi geto.psb |
 
 ## 01 TRAMA (limpio) (index.html)
 
