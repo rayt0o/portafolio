@@ -18,11 +18,11 @@ Cada fila es un hueco del sitio. Al dejar el archivo con ese nombre en `img/`, l
 
 | Archivo web | Qué es | Tamaño | Sale de |
 |---|---|---|---|
-| `sobre-autorretrato-linea.webp` | Autorretrato a línea de Nicolás Torres | 1600 × 2000 px · PNG | [¿editable?] |
-| `objeto-llavero.webp` | Llavero | 800 px · foto |  |
-| `objeto-02.webp` | [COMPLETAR] | 800 px · foto |  |
-| `objeto-03.webp` | [COMPLETAR] | 800 px · foto |  |
-| `objeto-04.webp` | [COMPLETAR] | 800 px · foto |  |
+| `objeto-llavero.webp` |  | Recorte PNG |  |
+| `objeto-02.webp` |  | Recorte PNG |  |
+| `objeto-03.webp` |  | Recorte PNG |  |
+| `objeto-04.webp` |  | Recorte PNG |  |
+| `sobre-autorretrato-linea.webp` | Autorretrato a línea de Nicolás Torres | 1600 × 2000 px · PNG transparente | [¿editable?] |
 
 ## 01 TRAMA (limpio) (index.html)
 

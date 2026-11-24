@@ -560,3 +560,44 @@ a { color: inherit; }
 .end .mega { line-height: .86; }
 .ch-satanae .s1 { top: auto; bottom: 47%; left: 24%; transform: rotate(-4deg); }
 @media (max-width: 860px) { .ch-satanae .s1 { top: auto; bottom: 41%; left: 0; } }
+
+/* ---------- Objetos del día a día: recortes sueltos de fondo, sin contenedor ---------- */
+.about > *:not(.floaters) { position: relative; z-index: 1; }
+.floaters { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.slot--float {
+  position: absolute; aspect-ratio: 1; border-radius: 50%;
+  background: none; outline: 1px dashed var(--line);
+}
+.slot--float:not(.is-loaded)::after { display: none; }
+.slot--float.is-loaded { border-radius: 0; outline: 0; }
+.slot--float > img { object-fit: contain; }
+.slot--float .slot__info { left: 0; right: 0; bottom: 50%; transform: translateY(50%); text-align: center; font-size: 9px; }
+.slot--float .slot__info b { font-size: 9px; }
+.slot--float .slot__info i { display: none; }
+.o1 { width: 150px; right: 5%;  top: 9%;   transform: rotate(14deg); }
+.o2 { width: 110px; left: 41%;  bottom: 5%; transform: rotate(-10deg); }
+.o3 { width: 210px; right: -60px; bottom: 16%; transform: rotate(8deg); }
+.o4 { width: 96px;  left: 40%;  top: 7%;   transform: rotate(-16deg); }
+@media (max-width: 860px) {
+  .o1 { width: 96px; right: 3%; top: 3%; }
+  .o2 { width: 84px; left: auto; right: 10%; bottom: 2%; }
+  .o3 { width: 130px; right: -46px; bottom: auto; top: 34%; }
+  .o4 { width: 72px; left: -18px; top: 46%; }
+}
+
+/* ---------- Portada en celular: PORTA siempre visible, la cabeza solo la pisa abajo ----------
+   La misma regla aplica a Silencio porque comparte .fig-box. */
+@media (max-width: 720px) {
+  :root { --fig-h: 72svh; }
+  .fig-box { bottom: auto; top: calc(12svh + 20vw); }
+  .cover__porta { top: 12svh; }
+  .cover__folio { bottom: 64px; }
+  .slot--figure .slot__info { left: 50%; right: auto; bottom: auto; top: 46%; transform: translateX(-50%); width: max-content; max-width: 88vw; text-align: center; }
+}
+@media (max-width: 720px) {
+  .cover .ficha--tl { top: 70px; }
+  .cover__porta { top: 104px; }
+  .fig-box { top: calc(104px + 20vw); }
+  .about__portrait { max-width: 300px; margin-inline: auto; }
+}
+.about__portrait { width: 100%; }
