@@ -811,3 +811,12 @@ a { color: inherit; }
 .ch-cueva .pano, .full { margin-inline: 0; border-radius: var(--r); }
 .ch-cueva .mega { margin-left: 0; }
 .ch-cueva .pano-cap { padding-inline: 2px; }
+
+/* ---------- El logo del proyecto como título ----------
+   El logo va grande detrás de la figura principal del capítulo. */
+.logo-title {
+  position: absolute; z-index: 1; left: 50%; top: 50%;
+  width: min(90vw, 1300px); height: auto; transform: translate(-50%, -58%);
+  pointer-events: none; filter: drop-shadow(0 0 50px rgba(89, 15, 188, .55));
+}
+@media (max-width: 720px) { .logo-title { width: 96vw; transform: translate(-50%, -78%); } }
