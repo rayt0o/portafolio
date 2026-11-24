@@ -745,3 +745,16 @@ a { color: inherit; }
 .f-end2 { width: clamp(110px, 13vw, 210px); opacity: .28; }
 .f-end3 { width: clamp(70px, 8vw, 130px); }
 @media (max-width: 720px) { .flame { width: 22vw; max-width: 120px; } .f-cover { width: 26vw; } }
+
+/* ---------- Púas: alambre cromado 3D ----------
+   El separador casi no ocupa altura: el alambre cruza el borde entre secciones. */
+.wire-sep { position: relative; z-index: 8; height: clamp(90px, 12vw, 170px); margin: calc(clamp(90px, 12vw, 170px) / -2) 0; pointer-events: none; }
+.wire-sep img { position: absolute; left: 50%; top: 50%; width: min(118vw, 1700px); max-width: none; height: auto; transform: translate(-50%, -50%) rotate(-3deg); filter: drop-shadow(0 6px 10px rgba(0,0,0,.6)); }
+.wire-sep--b img { transform: translate(-50%, -50%) rotate(2deg) scaleX(-1); }
+@media (max-width: 720px) { .wire-sep img { width: 150vw; } }
+.wire-sat { position: absolute; z-index: 4; right: -6%; top: 22%; width: 58%; pointer-events: none; opacity: .9; filter: drop-shadow(0 8px 14px rgba(0,0,0,.7)); }
+@media (max-width: 860px) { .wire-sat { width: 90%; top: 30%; right: -20%; } }
+/* ajuste: el separador tiene su propio espacio, el alambre no tapa títulos */
+.wire-sep { height: clamp(200px, 26vw, 380px); margin: 0; }
+.wire-sep img { width: min(104vw, 1500px); }
+@media (max-width: 720px) { .wire-sep { height: 48vw; } .wire-sep img { width: 140vw; } }
