@@ -34,11 +34,11 @@ Cada fila es un hueco del sitio. Al dejar el archivo con ese nombre en `site/img
 
 | Archivo web | Qué es | Tamaño | Sale de |
 |---|---|---|---|
-| `cueva-plaza-render.webp` | Render 3D de la plaza central del festival Cueva Pintada | 3200 × 1370 px · render | Modelos 3D/PlazaCentral.blend |
-| `cueva-poster.webp` | Póster del festival Cueva Pintada | 1600 × 2400 px | Poster Academico.ai |
-| `cueva-tipografia.webp` | Tipografía CuevaPintadaFest | 2000 × 1500 px | tipogrf.ai |
-| `cueva-camion.webp` | Render del camión del festival | 2000 px · render | 3D/*.blend |
-| `cueva-huron.webp` | Mascota hurón de Tairoke | 1200 px · PNG transparente | TAIROKE/huron.blend |
+| `cueva-personajes.webp` | Los tres personajes del festival Cueva Pintada | 3200 × 1370 px · los 3 juntos | TAIROKE/huron.blend · EMBER/pajaros.psd · [3.er personaje] |
+| `cueva-empaques.webp` | Empaques del festival Cueva Pintada | 1600 × 2400 px | empaques .psd |
+| `cueva-empaques-construccion.webp` | Construcción de los empaques | 2000 × 1500 px · foto o render | empaques .psd / .pdf |
+| `cueva-plaza-render.webp` | Render 3D de la plaza central, hecho en equipo | 2000 px · render · 3D en equipo | Modelos 3D/PlazaCentral.blend |
+| `cueva-huron.webp` | Hurón, personaje de Tairoke | 1200 px · PNG transparente | TAIROKE/huron.blend |
 
 ## 03 SATANÆ (intenso) (index.html)
 
