@@ -6,7 +6,7 @@
 <title>Nicolás Torres · rayt0o</title>
 <meta name="description" content="Portafolio de Nicolás Torres (rayt0o): branding, ilustración y 3D. Bogotá.">
 <meta name="theme-color" content="#07070B">
-<link rel="stylesheet" href="css/style.css?v=202611241707">
+<link rel="stylesheet" href="css/style.css?v=202611241717">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -21,6 +21,8 @@
 <meta property="og:description" content="Branding, ilustración y 3D. Bogotá.">
 <meta property="og:url" content="https://rayt0o.github.io/portafolio/">
 
+<script type="importmap">{"imports":{"three":"./js/vendor/three.module.min.js"}}</script>
+<script type="module" src="js/chrome3d.js?v=202611241717"></script>
 </head>
 <body>
 
@@ -72,10 +74,9 @@
   <div class="floaters" aria-hidden="true">
     <img class="flame fl-top f-about1" src="img/llama-01.webp" alt="" aria-hidden="true" loading="lazy">
     <img class="flame fl-br f-about2" src="img/llama-08.webp" alt="" aria-hidden="true" loading="lazy">
-    <figure class="slot slot--float o1" data-src="img/objeto-llavero.webp" data-alt="" data-spec="Recorte PNG"></figure>
-    <figure class="slot slot--float o2" data-src="img/objeto-02.webp" data-alt="" data-spec="Recorte PNG"></figure>
-    <figure class="slot slot--float o3" data-src="img/objeto-03.webp" data-alt="" data-spec="Recorte PNG"></figure>
-    <figure class="slot slot--float o4" data-src="img/objeto-04.webp" data-alt="" data-spec="Recorte PNG"></figure>
+    <canvas class="chrome3d obj3d o1" data-model="skeleton" data-tiltx="8" role="img" aria-label="Llavero de esqueleto en cromo. Arrástralo para girarlo"></canvas>
+    <canvas class="chrome3d obj3d o2" data-model="ring" data-tiltx="18" role="img" aria-label="Anillo con piedra azul en cromo. Arrástralo para girarlo"></canvas>
+    <canvas class="chrome3d obj3d o3" data-model="minifig" data-tiltx="6" role="img" aria-label="Llavero de figura de bloques en cromo. Arrástralo para girarlo"></canvas>
   </div>
   <figure class="slot slot--figure slot--contain about__portrait" data-src="img/sobre-autorretrato.webp"
     data-alt="Autorretrato de Nicolás Torres en busto, sonriendo" data-spec="PNG transparente" data-from="mi geto.psb"></figure>
@@ -110,7 +111,15 @@
 
 <!-- ======================= 01 TRAMA (limpio) ======================= -->
 <section id="trama" class="chapter ch-trama corners" aria-labelledby="trama-t">
-  <img class="logo-title" src="img/trama-logo.webp" alt="" aria-hidden="true" width="1490" height="666">
+  <div class="grunge" aria-hidden="true"></div>
+  <img class="corner-wire cw-tl" src="img/puas-02.webp" alt="" aria-hidden="true" loading="lazy">
+  <img class="corner-wire cw-br" src="img/puas-01.webp" alt="" aria-hidden="true" loading="lazy">
+  <div class="trama-logo3d">
+    <canvas class="chrome3d" data-model="svg:img/trama-logo.svg" data-depth="70" data-tiltx="-14" data-tilty="0" data-spin="off" data-pad="1.08" role="img" aria-label="Logo de Editorial TRAMA en cromo"></canvas>
+    <img class="logo-fallback" src="img/trama-logo.webp" alt="" aria-hidden="true">
+    <svg class="spark4 sp-l" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0 C53 38 62 47 100 50 C62 53 53 62 50 100 C47 62 38 53 0 50 C38 47 47 38 50 0Z" fill="#fff"/></svg>
+    <svg class="spark4 sp-r" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0 C53 38 62 47 100 50 C62 53 53 62 50 100 C47 62 38 53 0 50 C38 47 47 38 50 0Z" fill="#fff"/></svg>
+  </div>
   <h2 id="trama-t" style="position:absolute;left:-9999px">TRAMA</h2>
   <figure class="slot slot--figure slot--contain nyx" data-src="img/trama-nyx-frente.webp"
     data-alt="Nyx, la mascota 3D de TRAMA, de frente" data-spec="2400 px alto · PNG transparente" data-from="nyxmirrr.blend"></figure>
@@ -326,6 +335,6 @@
   <span>Bogotá ✦ Colombia</span>
 </footer>
 
-<script src="js/main.js?v=202611241707"></script>
+<script src="js/main.js?v=202611241717"></script>
 </body>
 </html>
