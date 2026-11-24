@@ -1,9 +1,9 @@
 # Lista de exportación
 
-Cada fila es un hueco del sitio. Al dejar el archivo con ese nombre en `site/img/`, la página lo muestra sola.
+Cada fila es un hueco del sitio. Al dejar el archivo con ese nombre en `img/`, la página lo muestra sola.
 
 - Original a doble tamaño: `D:\Diseño\_Portafolio web\exports\<proyecto>\` (PNG transparente para personajes y logos).
-- Versión web: `site/img/` en WebP, unos 1600 px, menos de 400 KB.
+- Versión web: `img/` en WebP, unos 1600 px, menos de 400 KB.
 - Las imágenes de la portada y de Alex (Silencio) deben ir a la misma escala, con la cara en el mismo punto.
 
 

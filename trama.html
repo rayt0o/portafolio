@@ -3,202 +3,156 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TRAMA · Caso de estudio · Nicolás Torres</title>
-<meta name="description" content="Caso de estudio TRAMA: identidad, Nyx en 3D y realidad aumentada.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Space+Mono:wght@400;700&amp;display=swap">
-<style>
-body{margin:0;background:#07070B}
-a{color:#6FD3FF}a:hover{color:#F2F2F7}
-.chrome{background:linear-gradient(180deg,#FFFFFF 0%,#D9DAE4 35%,#8A8DA0 55%,#C8B8FF 78%,#FFFFFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lbl{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.2em;color:#6FD3FF;text-transform:uppercase}
-.h2{margin:0;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:72px;line-height:0.92}
-.ph{border:1px solid #262640;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#9C9CB4;text-align:center;padding:0 24px;position:relative}
-.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
-.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
-.four{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.tab{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;min-height:44px;padding:0 18px;border-radius:3px;cursor:pointer}
-.tab-on{background:#590FBC;color:#FFFFFF;border:1px solid #8B4DFF}
-.tab-off{background:transparent;color:#C9C9DA;border:1px solid #262640}
-.tab-off:hover{border-color:#8B4DFF;color:#F2F2F7}
-.step{display:flex;gap:18px;padding:18px 0;border-top:1px solid #262640}
-@media (max-width:900px){.meta,.four{grid-template-columns:repeat(2,minmax(0,1fr))}.two,.three{grid-template-columns:repeat(1,minmax(0,1fr))}.hero-t{font-size:120px !important}.h2{font-size:52px}}
-</style>
-
+<title>TRAMA · Nicolás Torres</title>
+<meta name="description" content="TRAMA: identidad, campaña, Nyx en 3D y carta AR. Caso de estudio de Nicolás Torres (rayt0o).">
+<meta name="theme-color" content="#07070B">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div style="background: #07070B; color: #F2F2F7; font-family: 'Space Grotesk', sans-serif; position: relative; overflow: hidden">
+<!-- Logo rayt0o (ojo en estrella con espada) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="176 176 1575 1575">
+    <g fill="#FFFFFF"><path d="M901,1160.3 C758,1142.7 591.8,1061.2 520,877 C633.7,626.3 841.7,588 961,588 C1080.3,588 1288.3,626.3 1402,877 C1330.2,1061.2 1164,1142.7 1021,1160.3 L1021,1138.4 C1183.7,1118.6 1315.3,1018.8 1382,877 C1281.1,687.9 1108.4,621 961,621 C813.6,621 640.9,687.9 540,877 C606.7,1018.8 738.3,1118.6 901,1138.4 Z"/><path d="M961,250 L1026,602 L896,602 Z"/><path d="M213,877 L555,811 L530,877 L552,943 Z"/><path d="M1709,877 L1367,811 L1392,877 L1370,943 Z"/><path d="M453,456 L678,610 Q630,630 597,666 Z"/><path d="M1469,456 L1244,610 Q1292,630 1325,666 Z"/><path d="M453,1296 L600,1080 Q635,1100 685,1133 Z"/><path d="M1469,1296 L1322,1080 Q1287,1100 1237,1133 Z"/></g>
+    <g fill="#16BAD3"><path d="M961,652 L971,872 L981,895 L981,1428 C982,1468 1006,1478 1037,1478 C997,1540 972,1610 961,1682 C950,1610 925,1540 885,1478 C916,1478 940,1468 941,1428 L941,895 L951,872 Z"/><path d="M606,877 L1316,877 L1244,906 C1236,892 1222,886 1208,886 L961,889 L714,886 C700,886 686,892 678,906 Z"/><path d="M963.5,875.7 L758,763 L958.5,884.3 Z"/><path d="M963.5,884.3 L1164,763 L958.5,875.7 Z"/><path d="M958.4,875.7 L758,1001 L963.6,884.3 Z"/><path d="M958.4,884.3 L1164,1001 L963.6,875.7 Z"/></g>
+  </symbol>
+  <!-- alambre de púas: un tramo que se repite -->
+  <pattern id="wire" width="120" height="38" patternUnits="userSpaceOnUse">
+    <path d="M0 19 Q30 13 60 19 T120 19" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M0 21 Q30 27 60 21 T120 21" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M52 8 L68 30 M68 8 L52 30 M56 12 L64 26" stroke="currentColor" stroke-width="1.6" fill="none"/>
+  </pattern>
+</svg>
 
-<div aria-hidden="true" style="position: absolute; top: -260px; left: 20%; width: 1000px; height: 640px; background: radial-gradient(closest-side, rgba(89,15,188,0.45), rgba(89,15,188,0)); pointer-events: none"></div>
+<div class="grain" aria-hidden="true"></div>
 
-<header style="max-width: 1280px; margin: 0 auto; padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; position: relative">
-<a href="index.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; color: #C9C9DA; font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.14em">← VOLVER A PROYECTOS</a>
-<span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.04em">NICOLÁS TORRES</span>
-</header>
+<nav class="nav" aria-label="Principal">
+  <a class="nav__logo" href="index.html" aria-label="rayt0o, inicio">
+    <svg viewBox="176 176 1575 1575" aria-hidden="true"><use href="#logo"/></svg><span>rayt0o</span>
+  </a>
+  <ul>
+    <li><a href="index.html#sobre">Sobre mí</a></li>
+    <li class="keep"><a href="index.html#proyectos">Proyectos</a></li>
+    <li><a href="index.html#personajes">Personajes</a></li>
+    <li><a href="index.html#independientes">Independientes</a></li>
+    <li class="keep"><a href="index.html#contacto">Contacto</a></li>
+  </ul>
+</nav>
 
-<section style="max-width: 1280px; margin: 0 auto; padding: 48px 40px 40px; display: flex; flex-direction: column; gap: 28px; position: relative">
-<div class="lbl">✦ Caso de estudio · Proyecto Integra · 2025–2026</div>
-<h1 class="chrome hero-t" style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 220px; line-height: 0.82; letter-spacing: 0.02em">TRAMA</h1>
-<p style="margin: 0; font-size: 24px; line-height: 1.45; color: #D6D6E4; max-width: 760px">Una editorial digital de narrativa visual pensada para el celular: cuentos ilustrados, artbooks y cartas coleccionables, con identidad propia frente a las plataformas masivas.</p>
-<div class="meta" style="border-top: 1px solid #262640; padding-top: 28px; margin-top: 12px">
-<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: #9C9CB4">MI ROL</span><span style="font-size: 17px; line-height: 1.45">Branding y 3D</span></div>
-<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: #9C9CB4">DURACIÓN</span><span style="font-size: 17px; line-height: 1.45">Sep 2025 – Nov 2026</span></div>
-<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: #9C9CB4">EQUIPO</span><span style="font-size: 17px; line-height: 1.45">Juliana Vecino (ilustración y diagramación) · Cristian Restrepo (gestión e investigación)</span></div>
-<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: #9C9CB4">HERRAMIENTAS</span><span style="font-size: 17px; line-height: 1.45">Illustrator · Affinity · Blender · WebAR</span></div>
-</div>
+<main class="case">
+
+<!-- ======================= HÉROE ======================= -->
+<section class="chapter case-hero ch-trama corners" aria-labelledby="case-t">
+  <div class="title-stack" aria-hidden="true">
+    <p class="mega chrome back">TRAMA</p>
+    <p class="mega chrome front">TRAMA</p>
+  </div>
+  <h1 id="case-t" style="position:absolute;left:-9999px">TRAMA, caso de estudio</h1>
+  <figure class="slot slot--figure slot--contain nyx" data-src="img/trama-nyx-frente.webp"
+    data-alt="Nyx, la mascota de TRAMA, en 3D de frente" data-spec="2400 px alto · PNG transparente" data-from="nyxmirrr.blend"></figure>
+  <div class="ficha ficha--tl"><dl>
+    <dt>FIG.01</dt><dd>TRAMA · Caso de estudio</dd>
+    <dt>Proceso</dt><dd>1 año</dd>
+  </dl></div>
+  <a class="ficha ficha--bl" href="index.html#trama" style="text-decoration:none">← Volver al portafolio</a>
+  <p class="ficha ficha--br">✦ Desliza</p>
 </section>
 
-<section style="max-width: 1280px; margin: 0 auto; padding: 24px 40px 96px">
-<div class="ph" style="height: 640px; background: radial-gradient(circle at 50% 45%, rgba(89,15,188,0.7), #0B0B12 68%)">
-[ PORTADA GRANDE: NYX CON EL LOGO TRAMA ]
-<div aria-hidden="true" style="position: absolute; top: 14px; left: 14px; width: 20px; height: 20px; border-top: 2px solid #6FD3FF; border-left: 2px solid #6FD3FF"></div>
-<div aria-hidden="true" style="position: absolute; bottom: 14px; right: 14px; width: 20px; height: 20px; border-bottom: 2px solid #FF2A2A; border-right: 2px solid #FF2A2A"></div>
-</div>
+<!-- ======================= 01 EL PROYECTO ======================= -->
+<section class="block" aria-labelledby="b1">
+  <div class="block__head"><span class="n">01 / 06</span><h2 id="b1" class="h2 chrome">El proyecto</h2></div>
+  <p class="lede"><span class="todo">[COMPLETAR: qué es TRAMA y cuál era el reto, en 2 o 3 líneas. Lo saco de la bitácora cuando tenga acceso]</span></p>
+  <dl class="facts" style="margin-top:48px">
+    <div><dt class="mono muted">Mi rol</dt><dd>Branding<br>Nyx en 3D<br>Carta AR<br>Documento de gerencia (con Juliana Vecino)</dd></div>
+    <div><dt class="mono muted">Equipo</dt><dd>Juliana Vecino<br><span class="muted">Ilustración y diagramación</span></dd></div>
+    <div><dt class="mono muted">&nbsp;</dt><dd>Cristian Restrepo<br><span class="muted">Gestión e investigación</span></dd></div>
+    <div><dt class="mono muted">Herramientas</dt><dd>Illustrator · Affinity · Blender</dd></div>
+  </dl>
 </section>
 
-<section style="max-width: 1280px; margin: 0 auto; padding: 40px 40px 96px">
-<div class="two">
-<div style="display: flex; flex-direction: column; gap: 18px">
-<div class="lbl">01 · El reto</div>
-<h2 class="h2">LAS HISTORIAS QUE BUSCAS NO ESTÁN EN LAS PLATAFORMAS MASIVAS</h2>
-</div>
-<div style="display: flex; flex-direction: column; gap: 22px; justify-content: flex-end">
-<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D6D6E4">¿Cómo crear una editorial digital en español que se diferencie de las plataformas masivas con obras originales y coleccionables?</p>
-<div style="border-left: 2px solid #590FBC; padding: 4px 0 4px 20px">
-<div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: #B9A8FF; margin-bottom: 8px">INSIGHT</div>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C9C9DA">Los lectores jóvenes sienten que las plataformas no reflejan su identidad: buscan experiencias cercanas, visualmente atractivas y coleccionables que los hagan parte de una comunidad.</p>
-</div>
-</div>
-</div>
+<!-- ======================= 02 IDENTIDAD ======================= -->
+<section class="block" aria-labelledby="b2">
+  <div class="block__head"><span class="n">02 / 06</span><h2 id="b2" class="h2 chrome">Identidad</h2></div>
+  <figure class="slot full r-219" data-src="img/trama-logo.webp" data-alt="Logotipo de TRAMA" data-spec="3200 × 1370 px · PNG transparente" data-from="trama editorial.ai / trama.af"></figure>
+  <div class="two" style="margin-top:18px">
+    <figure class="slot r-1" data-src="img/trama-isotipo-a.webp" data-alt="Isotipo A de TRAMA" data-spec="2000 × 2000 px · PNG transparente" data-from="trama.af"></figure>
+    <div style="display:grid;gap:18px;align-content:start">
+      <div class="palette" role="img" aria-label="Paleta de TRAMA">
+        <div style="background:#590FBC"><span class="mono">#590FBC</span></div>
+        <div class="p-unknown"><span class="mono muted">Cian · <span class="todo">[HEX]</span></span></div>
+        <div class="p-unknown"><span class="mono muted"><span class="todo">[HEX]</span></span></div>
+        <div class="p-unknown"><span class="mono muted"><span class="todo">[HEX]</span></span></div>
+      </div>
+      <figure class="slot r-169" data-src="img/trama-tipo-cattedrale.webp" data-alt="Muestra de la tipografía Cattedrale" data-spec="2400 × 1350 px" data-from="Manual trama.pdf → trama.ai"></figure>
+      <figure class="slot r-169" data-src="img/trama-tipo-lt-cushion.webp" data-alt="Muestra de la tipografía LT Cushion" data-spec="2400 × 1350 px" data-from="trama.ai"></figure>
+    </div>
+  </div>
 </section>
 
-<section style="background: #0B0B12; border-top: 1px solid #262640; border-bottom: 1px solid #262640">
-<div style="max-width: 1280px; margin: 0 auto; padding: 96px 40px; display: flex; flex-direction: column; gap: 28px; align-items: center; text-align: center">
-<div class="lbl">02 · Concepto</div>
-<h2 class="chrome" style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 104px; line-height: 0.88">CADA HISTORIA ES<br>UNA PUERTA SELLADA</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #C9C9DA; max-width: 720px">El lector tiene la llave. Estética cyberpunk y cibersigilismo, texturas grunge que muestran la huella humana y el alambre de púas como símbolo de independencia frente a lo masivo.</p>
-</div>
+<div class="tape tape--lila" aria-hidden="true"><div class="tape__track"><span>&nbsp;✦ Nyx → 3D → Blender → Frente → Perfil → 3/4 →&nbsp;</span><span>&nbsp;✦ Nyx → 3D → Blender → Frente → Perfil → 3/4 →&nbsp;</span></div></div>
+
+<!-- ======================= 03 NYX ======================= -->
+<section class="block" aria-labelledby="b3">
+  <div class="block__head"><span class="n">03 / 06</span><h2 id="b3" class="h2 chrome">Nyx en 3D</h2></div>
+  <div class="three">
+    <figure class="slot slot--figure slot--contain r-34" data-src="img/trama-nyx-frente.webp" data-alt="Nyx de frente" data-spec="PNG transparente" data-from="nyxmirrr.blend"></figure>
+    <figure class="slot slot--figure slot--contain r-34" data-src="img/trama-nyx-perfil.webp" data-alt="Nyx de perfil" data-spec="PNG transparente" data-from="nyxmirrr.blend"></figure>
+    <figure class="slot slot--figure slot--contain r-34" data-src="img/trama-nyx-34.webp" data-alt="Nyx en vista tres cuartos" data-spec="PNG transparente" data-from="nyxmirrr.blend"></figure>
+  </div>
+  <figure class="slot full r-219" style="margin-top:48px" data-src="img/trama-nyx-animacion.webp" data-alt="Fotograma de la animación de Nyx" data-spec="3200 × 1370 px · fotograma" data-from="nyxmirrrANIMacion.blend"></figure>
+  <p class="mono muted" style="margin-top:12px">Fotograma de la animación ✦ Proceso: <span class="todo">[¿clip de las grabaciones de proceso?]</span></p>
 </section>
 
-<section style="max-width: 1280px; margin: 0 auto; padding: 112px 40px 96px; display: flex; flex-direction: column; gap: 48px">
-<div style="display: flex; flex-direction: column; gap: 14px">
-<div class="lbl">03 · Sistema de identidad · lo que diseñé</div>
-<h2 class="h2">UN SISTEMA QUE RESISTE</h2>
-</div>
-<div class="two">
-<div style="display: flex; flex-direction: column; gap: 20px">
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C9C9DA">Partí de una matriz de 21 tipografías (góticas, blackletter, punk y manuscritas) que votamos en equipo.</p>
-<div style="border: 1px solid #262640; border-radius: 4px; padding: 28px; background: #101019; display: flex; flex-direction: column; gap: 6px">
-<span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: #9C9CB4">TÍTULOS</span>
-<span style="font-size: 40px; font-weight: 700">Cattedrale</span>
-<span style="font-size: 14px; color: #9C9CB4">[ MUESTRA REAL DE LA FUENTE ]</span>
-</div>
-<div style="border: 1px solid #262640; border-radius: 4px; padding: 28px; background: #101019; display: flex; flex-direction: column; gap: 6px">
-<span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: #9C9CB4">TEXTOS</span>
-<span style="font-size: 40px; font-weight: 700">LT Cushion</span>
-<span style="font-size: 14px; color: #9C9CB4">[ MUESTRA REAL DE LA FUENTE ]</span>
-</div>
-</div>
-<div style="display: flex; flex-direction: column; gap: 20px">
-<div class="four">
-<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 120px; background: #590FBC; border-radius: 3px"></div><span style="font-size: 14px">Morado intenso</span><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #9C9CB4">#590FBC</span></div>
-<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 120px; background: #1B1B1F; border: 1px solid #262640; border-radius: 3px"></div><span style="font-size: 14px">Negro grisáceo</span><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #9C9CB4">[HEX]</span></div>
-<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 120px; background: #FFFFFF; border-radius: 3px"></div><span style="font-size: 14px">Blanco</span><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #9C9CB4">#FFFFFF</span></div>
-<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 120px; background: #00E5FF; border-radius: 3px"></div><span style="font-size: 14px">Cian brillante</span><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #9C9CB4">[HEX]</span></div>
-</div>
-<div style="display: flex; gap: 16px">
-<div class="ph" style="flex: 2 1 0; height: 220px; background: #101019">[ LOGOTIPO TRAMA ]</div>
-<div class="ph" style="flex: 1 1 0; height: 220px; background: #101019">[ ISOTIPO "A" ]</div>
-</div>
-</div>
-</div>
+<!-- ======================= 04 CARTA AR ======================= -->
+<section class="block" aria-labelledby="b4">
+  <div class="block__head"><span class="n">04 / 06</span><h2 id="b4" class="h2 chrome">Carta AR</h2></div>
+  <div class="ar">
+    <div class="card-flip" tabindex="0" role="button" aria-label="Girar la carta 001">
+      <div class="card-flip__inner">
+        <figure class="slot" data-src="img/trama-carta-001-frente.webp" data-alt="Carta 001, frente" data-spec="1500 × 2100 px" data-from="[editable de la carta]"></figure>
+        <figure class="slot" data-src="img/trama-carta-001-reverso.webp" data-alt="Carta 001, reverso" data-spec="1500 × 2100 px" data-from="[editable de la carta]"></figure>
+      </div>
+    </div>
+    <div>
+      <p class="mono star">✦ Toca la carta para girarla</p>
+      <p class="lede"><span class="todo">[COMPLETAR: cómo funciona la carta y qué pasa al escanearla]</span></p>
+      <a class="btn btn--primary" href="https://rayt0o.github.io/Nyx-ar" target="_blank" rel="noopener">Probar la experiencia AR →</a>
+    </div>
+  </div>
 </section>
 
-<section style="max-width: 1280px; margin: 0 auto; padding: 64px 40px 96px; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
-<div style="display: flex; flex-direction: column; gap: 14px">
-<div class="lbl">04 · Nyx, la cara de TRAMA · lo que diseñé</div>
-<h2 class="h2">DE BLENDER A LA PANTALLA</h2>
-</div>
-<div role="group" aria-label="Ver etapa de Nyx" style="display: flex; flex-wrap: wrap; gap: 10px">
-<button type="button" class="tab tab-on" data-stage="modelo" aria-pressed="true">Modelado</button>
-<button type="button" class="tab tab-off" data-stage="animacion" aria-pressed="false">Animación</button>
-<button type="button" class="tab tab-off" data-stage="ar" aria-pressed="false">AR</button>
-
-</div>
-</div>
-<div class="two">
-<div class="ph" style="height: 520px; background: radial-gradient(circle at 50% 50%, rgba(89,15,188,0.6), #0B0B12 70%)"><span id="st-img">[ RENDER DEL MODELO BASE ]</span></div>
-<div style="display: flex; flex-direction: column; gap: 18px; justify-content: center">
-<h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 44px; line-height: 1" id="st-title">Modelado</h3>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #C9C9DA" id="st-text">Modelo base del personaje en Blender y renders de presentación, siguiendo la paleta de TRAMA: cuerpo morado oscuro, alas moradas y ojos brillantes.</p>
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9C9CB4; border-top: 1px solid #262640; padding-top: 18px">Nyx es una gata con alas de murciélago y un collar de púas con el isotipo "A". Se probó un generador 3D con IA y se descartó: Nyx está modelada a mano.</p>
-</div>
-</div>
+<!-- ======================= 05 CAMPAÑA ======================= -->
+<section class="block" aria-labelledby="b5">
+  <div class="block__head"><span class="n">05 / 06</span><h2 id="b5" class="h2 chrome">Campaña</h2></div>
+  <div class="three" style="align-items:end">
+    <figure class="slot" style="aspect-ratio:4/5" data-src="img/trama-campana-post.webp" data-alt="Post de la campaña de TRAMA" data-spec="1600 × 2000 px" data-from="Estrategia Grupo 4/"></figure>
+    <figure class="slot" style="aspect-ratio:9/16" data-src="img/trama-campana-story.webp" data-alt="Story de la campaña de TRAMA" data-spec="1080 × 1920 px" data-from="Estrategia Grupo 4/"></figure>
+    <figure class="slot r-1" data-src="img/trama-campana-historieta.webp" data-alt="Historieta de la campaña de TRAMA, ilustrada por Juliana Vecino" data-spec="2000 × 2000 px" data-from="Estrategia Grupo 4/"></figure>
+  </div>
+  <p class="mono muted" style="margin-top:12px">Historieta: ilustración de Juliana Vecino</p>
 </section>
 
-<section style="background: #0B0B12; border-top: 1px solid #262640; border-bottom: 1px solid #262640">
-<div style="max-width: 1280px; margin: 0 auto; padding: 112px 40px; display: flex; flex-direction: column; gap: 48px">
-<div style="display: flex; flex-direction: column; gap: 14px">
-<div class="lbl">05 · Realidad aumentada · lo que diseñé</div>
-<h2 class="h2">NYX SALE DE LA CARTA</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #C9C9DA; max-width: 760px">El lector escanea un QR, apunta el celular a la carta coleccionable y Nyx aparece en 3D sobre ella. Funciona en el navegador, sin instalar nada.</p>
-</div>
-<div class="two">
-<div style="display: flex; gap: 16px">
-<div class="ph" style="flex: 1 1 0; height: 440px; background: #101019">[ CARTA 001 · FRENTE ]</div>
-<div class="ph" style="flex: 1 1 0; height: 440px; background: #101019">[ VIDEO: NYX EN AR ]</div>
-</div>
-<div style="display: flex; flex-direction: column">
-<div class="step"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 28px; color: #8B4DFF; min-width: 36px">1</span><div><div style="font-weight: 700; margin-bottom: 4px">Modelo</div><div style="font-size: 15px; color: #9C9CB4; line-height: 1.5">Nyx exportada de Blender a GLB, con su textura y contorno.</div></div></div>
-<div class="step"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 28px; color: #8B4DFF; min-width: 36px">2</span><div><div style="font-weight: 700; margin-bottom: 4px">Marcador</div><div style="font-size: 15px; color: #9C9CB4; line-height: 1.5">El frente de la carta, con textura grunge para que la cámara lo reconozca.</div></div></div>
-<div class="step"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 28px; color: #8B4DFF; min-width: 36px">3</span><div><div style="font-weight: 700; margin-bottom: 4px">WebAR</div><div style="font-size: 15px; color: #9C9CB4; line-height: 1.5">Pantalla de inicio, gestos para mover, girar y escalar a Nyx, y foto para compartir.</div></div></div>
-<div class="step"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 28px; color: #8B4DFF; min-width: 36px">4</span><div><div style="font-weight: 700; margin-bottom: 4px">Impresión</div><div style="font-size: 15px; color: #9C9CB4; line-height: 1.5">Carta de 63 × 88 mm, en tiro y retiro.</div></div></div>
-<a href="https://rayt0o.github.io/Nyx-ar" style="margin-top: 20px; align-self: flex-start; display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; background: #590FBC; color: #FFFFFF; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 14px; letter-spacing: 0.12em; border-radius: 3px; box-shadow: 0 0 36px rgba(139,77,255,0.55)">PROBAR LA EXPERIENCIA AR →</a>
-</div>
-</div>
-</div>
+<!-- ======================= 06 GERENCIA ======================= -->
+<section class="block" aria-labelledby="b6">
+  <div class="block__head"><span class="n">06 / 06</span><h2 id="b6" class="h2 chrome">Documento de gerencia</h2></div>
+  <div class="two" style="align-items:center">
+    <figure class="slot r-43" data-src="img/trama-gerencia.webp" data-alt="Páginas del documento de gerencia de TRAMA" data-spec="2400 × 1800 px" data-from="[editable del documento]"></figure>
+    <p class="lede">Hecho con Juliana Vecino. <span class="todo">[COMPLETAR: qué contiene]</span></p>
+  </div>
 </section>
 
-<section style="max-width: 1280px; margin: 0 auto; padding: 112px 40px 96px; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; flex-direction: column; gap: 14px">
-<div class="lbl">06 · Campaña "Abre la TRAMA"</div>
-<h2 class="h2">TRES FASES PARA ABRIR LA PUERTA</h2>
-<p style="margin: 0; font-size: 15px; color: #9C9CB4">Ilustraciones de la campaña: Juliana Vecino.</p>
-</div>
-<div class="three">
-<div style="display: flex; flex-direction: column; gap: 14px"><div class="ph" style="height: 300px; background: #101019">[ PIEZA TEASER ]</div><span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: #6FD3FF">FASE 1 · TEASER</span><span style="font-size: 16px; line-height: 1.5; color: #C9C9DA">Intriga sin revelar qué es TRAMA.</span></div>
-<div style="display: flex; flex-direction: column; gap: 14px"><div class="ph" style="height: 300px; background: #101019">[ PIEZA REVEAL ]</div><span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: #6FD3FF">FASE 2 · REVEAL</span><span style="font-size: 16px; line-height: 1.5; color: #C9C9DA">Presentación de la identidad: paleta, tipografía y logo.</span></div>
-<div style="display: flex; flex-direction: column; gap: 14px"><div class="ph" style="height: 300px; background: #101019">[ PIEZA ENGAGEMENT ]</div><span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: #6FD3FF">FASE 3 · ENGAGEMENT</span><span style="font-size: 16px; line-height: 1.5; color: #C9C9DA">Conversación con el público sobre la estética de las obras.</span></div>
-</div>
-</section>
-
-<section style="max-width: 1280px; margin: 0 auto; padding: 40px 40px 80px">
-<a href="index.html" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; padding: 48px; border: 1px solid #262640; border-radius: 4px; text-decoration: none; color: #F2F2F7; background: radial-gradient(ellipse at 100% 50%, rgba(43,75,255,0.3), #101019 60%)">
-<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: #9C9CB4">SIGUIENTE PROYECTO</span><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 64px; line-height: 0.9">CUEVA PINTADA</span></div>
-<span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 64px; color: #6FD3FF">→</span>
+<a class="next" href="index.html#cueva">
+  <span class="mono muted">Siguiente capítulo · 02</span>
+  <p class="mega chrome">Cueva Pintada →</p>
 </a>
-</section>
 
-<footer style="max-width: 1280px; margin: 0 auto; padding: 32px 40px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #9C9CB4">
-<span>© 2026 NICOLÁS TORRES</span>
-<span>TRAMA · PROYECTO INTEGRA 2026C <span style="color: #FF2A2A">✦</span></span>
+</main>
+
+<footer class="foot mono">
+  <span>© 2026 Nicolás Torres · rayt0o</span>
+  <span>Bogotá ✦ Colombia</span>
 </footer>
-</div>
 
-<script>
-
-var S={modelo:['Modelado','Modelo base del personaje en Blender y renders de presentación, siguiendo la paleta de TRAMA: cuerpo morado oscuro, alas moradas y ojos brillantes.','[ RENDER DEL MODELO BASE ]'],
-animacion:['Animación','Versiones animadas de Nyx, escenarios (la puerta 3D y la pared de madera del universo TRAMA) y tomas para el video de introducción del proyecto.','[ VIDEO: ANIMACIÓN 3D TRAMA ]'],
-ar:['Realidad aumentada','El mismo modelo, optimizado y exportado a GLB, es el que aparece sobre la carta coleccionable en la experiencia web.','[ NYX EN GLB SOBRE LA CARTA ]']};
-var tabs=document.querySelectorAll('[data-stage]');
-tabs.forEach(function(t){t.addEventListener('click',function(){var k=t.getAttribute('data-stage');
-tabs.forEach(function(q){var on=q===t;q.classList.toggle('tab-on',on);q.classList.toggle('tab-off',!on);q.setAttribute('aria-pressed',on?'true':'false');});
-document.getElementById('st-title').textContent=S[k][0];document.getElementById('st-text').textContent=S[k][1];document.getElementById('st-img').textContent=S[k][2];});});
-
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
