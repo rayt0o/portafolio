@@ -558,3 +558,5 @@ a { color: inherit; }
 @media (max-width: 720px) { .ch-trama .title-stack { font-size: 48vw; } }
 .todo { white-space: normal; -webkit-box-decoration-break: clone; box-decoration-break: clone; line-height: 1.7; }
 .end .mega { line-height: .86; }
+.ch-satanae .s1 { top: auto; bottom: 47%; left: 24%; transform: rotate(-4deg); }
+@media (max-width: 860px) { .ch-satanae .s1 { top: auto; bottom: 41%; left: 0; } }

@@ -34,7 +34,7 @@ Cada fila es un hueco del sitio. Al dejar el archivo con ese nombre en `site/img
 
 | Archivo web | Qué es | Tamaño | Sale de |
 |---|---|---|---|
-| `cueva-personajes.webp` | Los tres personajes del festival Cueva Pintada | 3200 × 1370 px · los 3 juntos | TAIROKE/huron.blend · EMBER/pajaros.psd · [3.er personaje] |
+| `cueva-personajes.webp` | Los tres personajes del festival Cueva Pintada | 3200 × 1370 px · los 3 juntos | TAIROKE/huron.blend · EMBER/pajaros.psd · León, el camaleón |
 | `cueva-empaques.webp` | Empaques del festival Cueva Pintada | 1600 × 2400 px | empaques .psd |
 | `cueva-empaques-construccion.webp` | Construcción de los empaques | 2000 × 1500 px · foto o render | empaques .psd / .pdf |
 | `cueva-plaza-render.webp` | Render 3D de la plaza central, hecho en equipo | 2000 px · render · 3D en equipo | Modelos 3D/PlazaCentral.blend |
@@ -44,9 +44,9 @@ Cada fila es un hueco del sitio. Al dejar el archivo con ese nombre en `site/img
 
 | Archivo web | Qué es | Tamaño | Sale de |
 |---|---|---|---|
-| `satanae-manual.webp` | Página del manual de marca Satanæ | 2400 × 1800 px | Manual de Marca Satanæ Iconoclast.ai |
-| `satanae-caja.webp` | Render de la caja del tarot Satanæ | 1600 px · render | caja.png |
-| `satanae-arcano-1.webp` | Arcano 1 del tarot Satanæ | 700 × 1200 | tarot cutie.ai |
+| `satanae-infierno.webp` | Fotograma del infierno en 3D de Satanæ | 2400 × 1350 px · fotograma | 3D Infierno/infe.blend |
+| `satanae-caja.webp` | Caja en forma de ataúd con un peluche dentro, render | 1600 px · render | caja.png |
+| `satanae-arcano-1.webp` | Arcano 1 del tarot Satanæ, ilustración de Juliana Vecino | 700 × 1200 | tarot cutie.ai · ilustración de Juliana |
 | `satanae-arcano-2.webp` | Arcano 2 |  |  |
 | `satanae-arcano-3.webp` | Arcano 3 |  |  |
 | `satanae-arcano-4.webp` | Arcano 4 |  |  |
@@ -153,7 +153,7 @@ Cada fila es un hueco del sitio. Al dejar el archivo con ese nombre en `site/img
 |---|---|---|---|
 | `trama-campana-post.webp` | Post de la campaña de TRAMA | 1600 × 2000 px | Estrategia Grupo 4/ |
 | `trama-campana-story.webp` | Story de la campaña de TRAMA | 1080 × 1920 px | Estrategia Grupo 4/ |
-| `trama-campana-historieta.webp` | Historieta de la campaña de TRAMA | 2000 × 2000 px | Estrategia Grupo 4/ |
+| `trama-campana-historieta.webp` | Historieta de la campaña de TRAMA, ilustrada por Juliana Vecino | 2000 × 2000 px | Estrategia Grupo 4/ |
 
 ## 06 GERENCIA (trama.html)
 
