@@ -758,3 +758,40 @@ a { color: inherit; }
 .wire-sep { height: clamp(200px, 26vw, 380px); margin: 0; }
 .wire-sep img { width: min(104vw, 1500px); }
 @media (max-width: 720px) { .wire-sep { height: 48vw; } .wire-sep img { width: 140vw; } }
+
+/* ---------- Transiciones suaves entre secciones ----------
+   La luz de cada sección se desvanece arriba y abajo: no hay cortes en seco. */
+.chapter::before {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 86%, transparent 100%);
+}
+
+/* ---------- Púas sutiles: acompañan, no tapan ---------- */
+.wire-sep { height: clamp(110px, 13vw, 190px); margin: 0; }
+.wire-sep img {
+  width: min(78vw, 1150px); opacity: .55; filter: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 16%, #000 84%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 16%, #000 84%, transparent 100%);
+}
+@media (max-width: 720px) { .wire-sep { height: 30vw; } .wire-sep img { width: 112vw; } }
+.wire-sat {
+  z-index: -1; top: auto; bottom: -4%; right: -8%; width: 42%; opacity: .45; filter: none;
+  -webkit-mask-image: radial-gradient(closest-side, #000 55%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 55%, transparent 100%);
+}
+@media (max-width: 860px) { .wire-sat { width: 70%; bottom: 0; right: -18%; top: auto; } }
+/* ajuste: el alambre se queda en su franja, se desvanece en los cuatro lados */
+.wire-sep { height: clamp(150px, 17vw, 250px); }
+.wire-sep img {
+  width: min(70vw, 1000px);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 16%, #000 84%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 26%, #000 74%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0, #000 16%, #000 84%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 26%, #000 74%, transparent 100%);
+  mask-composite: intersect;
+}
+@media (max-width: 720px) { .wire-sep { height: 34vw; } .wire-sep img { width: 104vw; } }
+/* llamas: el borde por donde venían cortadas se desvanece */
+.flame { -webkit-mask-size: 100% 100%; mask-size: 100% 100%; }
+.fl-top, .fl-tr { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 35%); mask-image: linear-gradient(to bottom, transparent 0, #000 35%); }
+.fl-bl, .fl-br { -webkit-mask-image: linear-gradient(to top, transparent 0, #000 35%); mask-image: linear-gradient(to top, transparent 0, #000 35%); }
+.fl-r { -webkit-mask-image: linear-gradient(to left, transparent 0, #000 40%); mask-image: linear-gradient(to left, transparent 0, #000 40%); }
