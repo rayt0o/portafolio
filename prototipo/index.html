@@ -88,7 +88,15 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
 .toast b { font-family: var(--f-script); font-weight: 400; font-size: 22px; margin-right: 6px; }
 
 /* ---------- 3 · recibo ---------- */
-.p-rec { background: linear-gradient(180deg, var(--mid), var(--sky)); }
+.p-end { background: linear-gradient(180deg, #2a62bd 0%, var(--mid) 45%, #cfe7f8 100%); display: grid; grid-template-columns: 1.1fr .9fr; }
+.hero3d { position: relative; height: 100%; }
+#c3d { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
+.whisper { position: absolute; left: 50%; top: 9%; transform: translateX(-50%); margin: 0; font-family: var(--f-script); font-size: 28px; color: var(--ink); pointer-events: none; transition: opacity .3s; }
+.side { position: relative; height: 100%; }
+.side .printer { top: 8%; } .side .rec-wrap { top: calc(8% + 36px); }
+.receipt .about { margin: 0; white-space: normal; }
+.receipt .links a { display: flex; justify-content: space-between; color: inherit; text-decoration: none; padding: 2px 0; }
+.receipt .links a:hover, .receipt .links a:focus-visible { background: #111; color: #fffef9; outline: none; }
 .printer { position: absolute; left: 50%; top: 9%; width: min(360px, 78vw); height: 46px; transform: translateX(-50%); border-radius: 14px; background: #eef2f6; box-shadow: inset 0 -6px 0 #cfd8e2, 0 10px 30px rgba(15,42,82,.25); z-index: 3; }
 .printer::after { content: ""; position: absolute; left: 7%; right: 7%; bottom: 10px; height: 4px; border-radius: 2px; background: #2a3a52; }
 .rec-wrap { position: absolute; left: 50%; top: calc(9% + 36px); width: min(320px, 70vw); transform: translateX(-50%); z-index: 2; }
@@ -106,43 +114,24 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
 .receipt td:last-child { text-align: right; }
 .receipt .tot td { font-weight: 700; font-size: 14px; }
 .barcode { height: 46px; margin-top: 12px; background: repeating-linear-gradient(90deg, #111 0 2px, transparent 2px 4px, #111 4px 5px, transparent 5px 8px, #111 8px 11px, transparent 11px 12px); }
-.rec-tools { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); display: flex; gap: 10px; z-index: 4; }
-.btn { border: 0; border-radius: 999px; padding: 11px 18px; background: var(--paper); color: var(--ink); font: 500 13px var(--f-text); letter-spacing: .04em; cursor: pointer; box-shadow: 0 8px 20px rgba(15,42,82,.18); }
-.btn:hover, .btn:focus-visible { background: #fff; outline: 2px solid var(--deep); }
-.rec-title { position: absolute; left: max(28px, env(safe-area-inset-left, 0px)); top: 24px; margin: 0; font-family: var(--f-title); font-style: italic; font-weight: 400; font-size: clamp(38px, 5vw, 70px); line-height: 1; color: var(--paper); }
 
-/* ---------- 4 · contacto 3D ---------- */
-.p-con { background: linear-gradient(180deg, #2a62bd, #7fb6e8 70%, #cfe7f8); }
-#c3d { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
-.con-title { position: absolute; left: max(28px, env(safe-area-inset-left, 0px)); top: 24px; margin: 0; z-index: 2; font-family: var(--f-title); font-style: italic; font-weight: 400; font-size: clamp(38px, 5vw, 70px); line-height: 1; pointer-events: none; }
-.views { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); display: flex; gap: 8px; z-index: 3; }
-.views .btn[aria-pressed="true"] { background: var(--deep); color: #fff; }
-.pin { position: absolute; z-index: 2; transform: translate(-50%, -100%); padding: 8px 14px; border-radius: 999px; border: 0; background: var(--paper); color: var(--ink); font: 500 13px var(--f-text); text-decoration: none; white-space: nowrap; box-shadow: 0 8px 18px rgba(15,42,82,.25); }
-.pin::after { content: ""; position: absolute; left: 50%; top: 100%; width: 2px; height: 18px; background: var(--paper); transform: translateX(-50%); }
-.pin:hover, .pin:focus-visible { background: var(--deep); color: #fff; outline: none; }
-.drag-hint { position: absolute; right: max(24px, env(safe-area-inset-right, 0px)); top: 30px; z-index: 2; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
 
-/* ---------- navegación ---------- */
-#nav { position: fixed; z-index: 20; left: 50%; top: 14px; transform: translateX(-50%); display: flex; gap: 6px; padding: 6px; border-radius: 999px; background: rgba(251,250,246,.72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-#nav button { border: 0; background: none; padding: 6px 11px; border-radius: 999px; font: 500 12px var(--f-text); color: var(--ink); cursor: pointer; letter-spacing: .03em; }
-#nav button[aria-current="true"] { background: var(--deep); color: #fff; }
-#nav button:focus-visible { outline: 2px solid var(--deep); }
-#bar { position: fixed; z-index: 20; left: 0; bottom: 0; height: 3px; width: 100%; background: var(--paper); transform-origin: 0 50%; transform: scaleX(0); opacity: .8; }
-.tag-proto { position: fixed; z-index: 20; right: max(12px, env(safe-area-inset-right, 0px)); bottom: 10px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); background: rgba(251,250,246,.7); padding: 4px 8px; border-radius: 6px; }
 @media (max-width: 700px) {
-  #nav { top: 8px; gap: 2px; } #nav button { padding: 6px 8px; font-size: 11px; }
-  .cover { padding-top: 56px; } .cover .top span:last-child { display: none; }
+  .cover { padding-top: 28px; } .cover .top span:last-child { display: none; }
   .name { top: 24%; font-size: 16vw; max-width: 70%; }
   .vtitle { font-size: 36vw; right: 2vw; }
   .intro { font-size: 14px; max-width: 64%; bottom: 74px; }
   .hint { bottom: 32px; left: max(28px, env(safe-area-inset-left, 0px)); right: auto; }
-  .inv-head { top: 58px; } .mine { top: auto; bottom: 18px; right: 50%; transform: translateX(50%); width: auto; text-align: center; }
+  .inv-head { top: 24px; } .mine { top: auto; bottom: 18px; right: 50%; transform: translateX(50%); width: auto; text-align: center; }
   .mine .row { justify-content: center; } .mine h3 { font-size: 24px; margin: 0 0 4px; }
   .stage3d { top: 50%; width: 112vw; }
   .blanket { transform: rotateX(52deg) rotateZ(-4deg); }
   .slot-obj { width: 17%; }
-  .rec-title, .con-title, .eyes-title { top: 58px; } .drag-hint { display: none; }
-  .printer { top: 17%; } .rec-wrap { top: calc(17% + 36px); }
+  .eyes-title { top: 28px; }
+  .p-end { grid-template-columns: 1fr; grid-template-rows: 46% 54%; }
+  .whisper { top: 12px; font-size: 22px; }
+  .side .printer { top: 0; width: 74vw; } .side .rec-wrap { top: 30px; width: 66vw; max-height: calc(100% - 36px); overflow: auto; }
+  .receipt { font-size: 11px; padding: 16px 16px 24px; }
 }
 @media (prefers-reduced-motion: reduce) { .cloud, .hint i { animation: none; } .receipt { transition: none; } }
 </style>
@@ -191,12 +180,13 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
       <div class="toast" id="toast" role="status"></div>
     </section>
 
-    <!-- 3 · recibo -->
-    <section class="panel p-rec" aria-labelledby="rec-t">
-      <h2 class="rec-title" id="rec-t">Recibo</h2>
-      <div class="printer" aria-hidden="true"></div>
-      <div class="rec-wrap">
-        <div class="receipt" id="receipt" tabindex="0" aria-label="Recibo con la información de Nicolás Torres. Se puede arrastrar.">
+    <!-- 3 · final: personaje + recibo -->
+    <section class="panel p-end" aria-label="Contacto">
+      <div class="hero3d"><canvas id="c3d" aria-label="Tu personaje caminando. Arrástralo para girarlo entre cuatro vistas."></canvas><p class="whisper" id="viewname">Frente</p></div>
+      <div class="side">
+        <div class="printer" aria-hidden="true"></div>
+        <div class="rec-wrap">
+          <div class="receipt" id="receipt" tabindex="0" aria-label="Recibo con la información de Nicolás Torres. Se puede arrastrar.">
           <h4>Nicol<span class="acc">a</span>s Torres</h4>
           <div class="c">RAYT0O · BOGOTÁ<br>ORDEN #0001 · 2026</div>
           <hr>
@@ -211,29 +201,16 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
             <tr><td>ILLUSTRATOR</td><td>✓</td></tr><tr><td>PHOTOSHOP</td><td>✓</td></tr><tr><td>AFFINITY</td><td>✓</td></tr><tr><td>BLENDER</td><td>✓</td></tr>
           </table>
           <hr>
+          <p class="about">[COMPLETAR: frase corta de presentación]</p>
+          <hr>
           <table><tr><td>IDIOMAS</td><td>ES · EN</td></tr><tr><td>CIUDAD</td><td>BOGOTÁ</td></tr></table>
           <hr>
           <table><tr class="tot"><td>TOTAL</td><td>1 DISEÑADOR</td></tr></table>
           <hr>
-          <div class="c">@RAYT0O<br>TORRESNICOLAS162@GMAIL.COM<br>GRACIAS POR VER</div>
+          <div class="links"><a href="https://instagram.com/rayt0o" target="_blank" rel="noopener">INSTAGRAM ··· @RAYT0O</a><a href="https://www.behance.net/gallery/194131263/Portafolio-Diseno-Grafico" target="_blank" rel="noopener">BEHANCE ··· RAYT0O</a><a href="#" id="mail">CORREO ··· COPIAR</a></div><div class="c">TORRESNICOLAS162@GMAIL.COM<br>GRACIAS POR VER</div>
           <div class="barcode" aria-hidden="true"></div>
         </div>
-      </div>
-      <div class="rec-tools"><button class="btn" id="reprint" type="button">Imprimir de nuevo</button><button class="btn" id="crumple" type="button">Arrugar</button></div>
-    </section>
-
-    <!-- 4 · contacto 3D -->
-    <section class="panel p-con" aria-labelledby="con-t">
-      <canvas id="c3d" aria-label="Escena 3D con el personaje caminando. Arrastra para girarla."></canvas>
-      <h2 class="con-title" id="con-t">Hablemos</h2>
-      <p class="drag-hint">Arrastra para girar</p>
-      <a class="pin" data-pin="0" href="https://instagram.com/rayt0o" target="_blank" rel="noopener">Instagram</a>
-      <a class="pin" data-pin="1" href="https://www.behance.net/gallery/194131263/Portafolio-Diseno-Grafico" target="_blank" rel="noopener">Behance</a>
-      <button class="pin" data-pin="2" type="button" id="mailpin">Correo</button>
-      <div class="views" role="group" aria-label="Vistas">
-        <button class="btn" type="button" data-view="0" aria-pressed="true">Frente</button>
-        <button class="btn" type="button" data-view="1" aria-pressed="false">Desde arriba</button>
-        <button class="btn" type="button" data-view="2" aria-pressed="false">De lejos</button>
+        </div>
       </div>
     </section>
   </div>
@@ -251,19 +228,13 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
   </div>
 </div>
 
-<nav id="nav" aria-label="Paradas del recorrido">
-  <button type="button" data-go="0">Cielo</button><button type="button" data-go="1">Ojos</button><button type="button" data-go="2">Inventario</button><button type="button" data-go="3">Recibo</button><button type="button" data-go="4">Contacto</button>
-</nav>
-<div id="bar"></div>
-<div class="tag-proto">Prototipo</div>
 
 <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
 <script>
 /* ---------- recorrido horizontal ----------
    P va de 0 a 4: 0→1 la cámara se aleja del cielo hasta los ojos; luego cada unidad es una parada hacia la derecha. */
 (function () {
-  const MAX = 4, track = document.getElementById('track'), sky = document.getElementById('sky'), face = document.getElementById('face'), bar = document.getElementById('bar');
-  const navBtns = [...document.querySelectorAll('#nav button')];
+  const MAX = 3, track = document.getElementById('track'), sky = document.getElementById('sky'), face = document.getElementById('face');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let P = 0, T = 0, idle = 0;
   const clamp = v => Math.max(0, Math.min(MAX, v));
@@ -278,7 +249,6 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
   addEventListener('pointerdown', e => { if (e.target.closest('[data-nonav], button, a')) return; sx = e.clientX; sy = e.clientY; sT = T; });
   addEventListener('pointermove', e => { if (sx === null) return; const d = (sx - e.clientX) + (sy - e.clientY); T = clamp(sT + d / (innerWidth * .9)); idle = 0; });
   addEventListener('pointerup', () => { if (sx !== null) { T = clamp(Math.round(T + (T - sT) * .6)); } sx = null; });
-  navBtns.forEach(b => b.addEventListener('click', () => { T = +b.dataset.go; }));
   function frame() {
     idle++;
     if (idle > 24 && sx === null) T += (Math.round(T) - T) * .08; // se asienta en la parada más cercana
@@ -292,9 +262,6 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
     const s = 1 + Math.pow(1 - z, 2.2) * 22;
     face.style.transform = `translate(-50%, -50%) scale(${s})`;
     track.style.transform = `translateX(${-slide * innerWidth}px)`;
-    bar.style.transform = `scaleX(${P / MAX})`;
-    const cur = Math.round(P);
-    navBtns.forEach((b, i) => b.setAttribute('aria-current', i === cur ? 'true' : 'false'));
     window.dispatchEvent(new CustomEvent('stop', { detail: P }));
     requestAnimationFrame(frame);
   }
@@ -339,78 +306,70 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
   document.querySelectorAll('.mine button').forEach(b => b.addEventListener('click', () => say(b.dataset.say)));
 })();
 
-/* ---------- recibo: se imprime al llegar, se arrastra y se arruga ---------- */
+/* ---------- recibo: se imprime al llegar; se arrastra; doble toque lo arruga y lo alisa ---------- */
 (function () {
   const r = document.getElementById('receipt'); r.setAttribute('data-nonav', '');
   let printed = false;
   addEventListener('stop', e => { if (!printed && Math.abs(e.detail - 3) < .35) { printed = true; r.classList.add('printed'); } });
-  document.getElementById('reprint').addEventListener('click', () => { r.classList.remove('printed', 'crumpled'); r.style.translate = '0 0'; void r.offsetWidth; requestAnimationFrame(() => r.classList.add('printed')); });
-  document.getElementById('crumple').addEventListener('click', e => { r.classList.toggle('crumpled'); e.currentTarget.textContent = r.classList.contains('crumpled') ? 'Alisar' : 'Arrugar'; });
-  let ox = 0, oy = 0, dx = 0, dy = 0, drag = false;
-  r.addEventListener('pointerdown', e => { drag = true; ox = e.clientX - dx; oy = e.clientY - dy; r.setPointerCapture(e.pointerId); r.classList.add('dragging'); e.stopPropagation(); });
-  r.addEventListener('pointermove', e => { if (!drag) return; dx = e.clientX - ox; dy = e.clientY - oy; r.style.translate = `${dx}px ${dy}px`; r.style.rotate = (dx / 40) + 'deg'; });
+  r.addEventListener('dblclick', () => r.classList.toggle('crumpled'));
+  const mail = document.getElementById('mail');
+  mail.addEventListener('click', e => { e.preventDefault(); navigator.clipboard?.writeText('torresnicolas162@gmail.com').then(() => { mail.textContent = 'CORREO ··· COPIADO'; }).catch(() => {}); });
+  let ox = 0, oy = 0, dx = 0, dy = 0, drag = false, moved = false;
+  r.addEventListener('pointerdown', e => { if (e.target.closest('a')) return; drag = true; moved = false; ox = e.clientX - dx; oy = e.clientY - dy; r.setPointerCapture(e.pointerId); r.classList.add('dragging'); e.stopPropagation(); });
+  r.addEventListener('pointermove', e => { if (!drag) return; moved = true; dx = e.clientX - ox; dy = e.clientY - oy; r.style.translate = `${dx}px ${dy}px`; r.style.rotate = (dx / 40) + 'deg'; });
   r.addEventListener('pointerup', () => { drag = false; r.classList.remove('dragging'); });
 })();
 </script>
 
 <script type="module">
-/* ---------- contacto en 3D: personaje provisional caminando en loop, toon low-poly ---------- */
+/* ---------- personaje: camina en su sitio; arrastrar lo gira y se asienta en una de 4 vistas ---------- */
 import * as THREE from 'three';
 const cv = document.getElementById('c3d'); cv.setAttribute('data-nonav', '');
+const label = document.getElementById('viewname');
 let started = false;
-addEventListener('stop', e => { if (!started && e.detail > 3.3) { started = true; init(); } });
+addEventListener('stop', e => { if (!started && e.detail > 2.3) { started = true; init(); } });
 function init() {
   const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
   r.setPixelRatio(Math.min(devicePixelRatio, 2));
-  const scene = new THREE.Scene(); scene.fog = new THREE.Fog(0xcfe7f8, 26, 70);
-  const cam = new THREE.PerspectiveCamera(38, 1, .1, 100);
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(30, 1, .1, 100);
   scene.add(new THREE.HemisphereLight(0xffffff, 0x8cc4ec, 1.6));
   const sun = new THREE.DirectionalLight(0xffffff, 1.4); sun.position.set(4, 8, 5); scene.add(sun);
-  const g = new Uint8Array([90, 170, 255]); const ramp = new THREE.DataTexture(g, 3, 1, THREE.RedFormat); ramp.needsUpdate = true; ramp.minFilter = ramp.magFilter = THREE.NearestFilter;
+  const ramp = new THREE.DataTexture(new Uint8Array([90, 170, 255]), 3, 1, THREE.RedFormat); ramp.needsUpdate = true; ramp.minFilter = ramp.magFilter = THREE.NearestFilter;
   const toon = c => new THREE.MeshToonMaterial({ color: c, gradientMap: ramp });
-  const outline = (mesh, s = 1.06) => { const o = new THREE.Mesh(mesh.geometry, new THREE.MeshBasicMaterial({ color: 0x0f2a52, side: THREE.BackSide })); o.scale.setScalar(s); mesh.add(o); return mesh; };
-  // isla
-  const island = outline(new THREE.Mesh(new THREE.CylinderGeometry(5, 4.2, 1.2, 9), toon(0x8cc4ec)), 1.02); island.position.y = -.6; scene.add(island);
-  const top = new THREE.Mesh(new THREE.CylinderGeometry(4.9, 4.9, .05, 9), toon(0xe9f4fc)); top.position.y = .02; scene.add(top);
-  // nubes low-poly
-  for (let i = 0; i < 7; i++) {
-    const c = new THREE.Group(); for (let k = 0; k < 3; k++) { const m = outline(new THREE.Mesh(new THREE.IcosahedronGeometry(.6 + Math.random() * .5, 0), toon(0xffffff)), 1.05); m.position.set(k * .7 - .7, Math.random() * .3, Math.random() * .3); c.add(m); }
-    const a = i / 7 * Math.PI * 2 + .3; c.position.set(Math.cos(a) * 15, 1 + Math.random() * 3, Math.sin(a) * 15); scene.add(c);
-  }
-  // personaje provisional
-  const hero = new THREE.Group(); scene.add(hero);
+  const outline = (m, k = 1.06) => { const o = new THREE.Mesh(m.geometry, new THREE.MeshBasicMaterial({ color: 0x0f2a52, side: THREE.BackSide })); o.scale.setScalar(k); m.add(o); return m; };
+  // todo gira junto: personaje + su pedacito de mundo
+  const world = new THREE.Group(); scene.add(world);
+  const island = outline(new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2, .7, 8), toon(0x8cc4ec)), 1.02); island.position.y = -.35; world.add(island);
+  const top = new THREE.Mesh(new THREE.CylinderGeometry(2.35, 2.35, .04, 8), toon(0xe9f4fc)); world.add(top);
+  [[-1.6, 2.6, -1.4], [1.8, 3.2, -1.2], [1.4, .5, 1.6]].forEach(([x, y, z]) => { const c = new THREE.Group(); for (let k = 0; k < 3; k++) { const m = outline(new THREE.Mesh(new THREE.IcosahedronGeometry(.32 + k * .08, 0), toon(0xffffff)), 1.05); m.position.set(k * .38 - .38, 0, 0); c.add(m); } c.position.set(x, y, z); world.add(c); });
+  // personaje provisional (lo reemplaza tu modelo low-poly con texturas pintadas)
+  const hero = new THREE.Group(); world.add(hero);
   const body = outline(new THREE.Mesh(new THREE.CapsuleGeometry(.42, .7, 3, 6), toon(0x2b4bff))); body.position.y = 1.15; hero.add(body);
   const head = outline(new THREE.Mesh(new THREE.IcosahedronGeometry(.5, 1), toon(0xf4efe6))); head.position.y = 2.05; hero.add(head);
-  const hair = new THREE.Mesh(new THREE.IcosahedronGeometry(.52, 1), toon(0x0f2a52)); hair.scale.set(1, .6, 1); hair.position.y = 2.22; hero.add(hair);
-  [-.18, .18].forEach(x => { const e = new THREE.Mesh(new THREE.SphereGeometry(.07, 8, 6), new THREE.MeshBasicMaterial({ color: 0x4f8fd9 })); e.position.set(x, 2.08, .45); hero.add(e); });
+  const hair = new THREE.Mesh(new THREE.IcosahedronGeometry(.53, 1), toon(0x0f2a52)); hair.scale.set(1, .62, 1); hair.position.set(0, 2.23, -.04); hero.add(hair);
+  [-.18, .18].forEach(x => { const e = new THREE.Mesh(new THREE.SphereGeometry(.07, 8, 6), new THREE.MeshBasicMaterial({ color: 0x4f8fd9 })); e.position.set(x, 2.08, .46); hero.add(e); });
+  const bag = outline(new THREE.Mesh(new THREE.BoxGeometry(.5, .55, .22), toon(0xfbfaf6))); bag.position.set(0, 1.2, -.42); hero.add(bag);
   const legs = [-.18, .18].map(x => { const l = outline(new THREE.Mesh(new THREE.BoxGeometry(.2, .6, .2), toon(0x0f2a52))); l.geometry.translate(0, -.3, 0); l.position.set(x, .62, 0); hero.add(l); return l; });
-  // postes de contacto
-  const posts = [[-2.6, 0, 1.6], [2.8, 0, 1.2], [0, 0, -3]].map(([x, y, z]) => { const p = outline(new THREE.Mesh(new THREE.CylinderGeometry(.06, .06, 1.6, 6), toon(0xfbfaf6))); p.position.set(x, .8, z); scene.add(p); return new THREE.Vector3(x, 1.65, z); });
-  const pins = [...document.querySelectorAll('.pin')];
-  document.getElementById('mailpin').addEventListener('click', () => { navigator.clipboard?.writeText('torresnicolas162@gmail.com').then(() => { document.getElementById('mailpin').textContent = 'Copiado'; }).catch(() => {}); });
-  // vistas y giro
-  const VIEWS = [{ d: 15, el: .3 }, { d: 17, el: 1.32 }, { d: 30, el: .45 }];
-  let yaw = .4, el = .3, dist = 15, tYaw = yaw, tEl = el, tDist = dist;
-  document.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => {
-    const v = VIEWS[+b.dataset.view]; tEl = v.el; tDist = v.d;
-    document.querySelectorAll('[data-view]').forEach(o => o.setAttribute('aria-pressed', o === b ? 'true' : 'false'));
-  }));
-  let drag = false, lx = 0, ly = 0;
-  cv.addEventListener('pointerdown', e => { drag = true; lx = e.clientX; ly = e.clientY; cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing'; e.stopPropagation(); });
-  cv.addEventListener('pointermove', e => { if (!drag) return; tYaw -= (e.clientX - lx) * .008; tEl = Math.max(.05, Math.min(1.45, tEl + (e.clientY - ly) * .006)); lx = e.clientX; ly = e.clientY; });
-  cv.addEventListener('pointerup', () => { drag = false; cv.style.cursor = 'grab'; });
-  const fit = () => { const w = cv.clientWidth, h = cv.clientHeight; r.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
+  const arms = [-.5, .5].map(x => { const a = outline(new THREE.Mesh(new THREE.BoxGeometry(.16, .55, .16), toon(0x2b4bff))); a.geometry.translate(0, -.26, 0); a.position.set(x, 1.5, 0); hero.add(a); return a; });
+  // 4 vistas: frente, perfil derecho, detrás, perfil izquierdo
+  const NAMES = ['Frente', 'Perfil derecho', 'Detrás', 'Perfil izquierdo'];
+  let yaw = 0, target = 0, drag = false, lx = 0, sY = 0;
+  const snap = () => { target = Math.round(target / (Math.PI / 2)) * (Math.PI / 2); const i = ((Math.round(target / (Math.PI / 2)) % 4) + 4) % 4; label.textContent = NAMES[i]; };
+  cv.addEventListener('pointerdown', e => { drag = true; lx = e.clientX; sY = target; cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing'; e.stopPropagation(); });
+  cv.addEventListener('pointermove', e => { if (!drag) return; target = sY - (e.clientX - lx) * .009; });
+  cv.addEventListener('pointerup', () => { if (!drag) return; drag = false; cv.style.cursor = 'grab'; const d = target - sY; if (Math.abs(d) > .15 && Math.abs(d) < Math.PI / 4) target = sY + Math.sign(d) * Math.PI / 2; snap(); });
+  cv.addEventListener('keydown', e => { if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.stopPropagation(); } });
+  const fit = () => { const w = cv.clientWidth, h = cv.clientHeight; r.setSize(w, h, false); cam.aspect = w / h; cam.position.set(0, 2.2, 12.5 * Math.max(1, .9 / cam.aspect)); cam.lookAt(0, .9, 0); cam.updateProjectionMatrix(); };
   fit(); new ResizeObserver(fit).observe(cv);
-  const v3 = new THREE.Vector3(), clock = new THREE.Clock();
+  const clock = new THREE.Clock();
   (function loop() {
-    const t = clock.getElapsedTime();
-    const a = t * .35; hero.position.set(Math.cos(a) * 2.2, Math.abs(Math.sin(t * 6)) * .08, Math.sin(a) * 2.2); hero.rotation.y = -a;
-    legs[0].rotation.x = Math.sin(t * 6) * .6; legs[1].rotation.x = -Math.sin(t * 6) * .6;
-    yaw += (tYaw - yaw) * .08; el += (tEl - el) * .08; dist += (tDist - dist) * .06;
-    const D = dist * Math.max(1, 1.15 / cam.aspect);
-    cam.position.set(Math.sin(yaw) * Math.cos(el) * D, Math.sin(el) * D + .8, Math.cos(yaw) * Math.cos(el) * D); cam.lookAt(0, 1, 0);
+    const t = clock.getElapsedTime(), w = Math.sin(t * 6);
+    legs[0].rotation.x = w * .6; legs[1].rotation.x = -w * .6; arms[0].rotation.x = -w * .5; arms[1].rotation.x = w * .5;
+    hero.position.y = Math.abs(Math.cos(t * 6)) * .06;
+    top.material.map = null;
+    yaw += (target - yaw) * .12; world.rotation.y = yaw;
     r.render(scene, cam);
-    posts.forEach((p, i) => { v3.copy(p).project(cam); const vis = v3.z < 1; pins[i].style.left = ((v3.x + 1) / 2 * cv.clientWidth) + 'px'; pins[i].style.top = ((1 - v3.y) / 2 * cv.clientHeight) + 'px'; pins[i].style.opacity = vis ? 1 : 0; });
     requestAnimationFrame(loop);
   })();
 }
