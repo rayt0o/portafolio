@@ -57,35 +57,31 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
 .eyes-note { position: absolute; left: max(28px, env(safe-area-inset-left, 0px)); bottom: 28px; margin: 0; color: var(--soft); font-size: 13px; max-width: 300px; line-height: 1.5; }
 .eyes-title { opacity: var(--rv, 0); transition: opacity .4s; position: absolute; left: max(28px, env(safe-area-inset-left, 0px)); top: 28px; margin: 0; font-family: var(--f-title); font-style: italic; font-weight: 400; color: var(--ink); font-size: clamp(34px, 5vw, 64px); line-height: 1; }
 
-/* ---------- 2 · inventario ---------- */
-.p-inv { background: linear-gradient(180deg, #dceefb 0%, #c3e2f7 100%); color: var(--ink); }
-.inv-head { position: absolute; left: max(28px, env(safe-area-inset-left, 0px)); top: 24px; z-index: 3; }
-.inv-head h2 { margin: 0; font-family: var(--f-title); font-style: italic; font-weight: 400; font-size: clamp(38px, 5vw, 70px); line-height: 1; }
-.inv-head p { margin: 6px 0 0; font-size: 13px; color: var(--soft); }
-.stage3d { position: absolute; left: 50%; top: 56%; width: min(1100px, 94vw); aspect-ratio: 16 / 10; transform: translate(-50%, -50%); perspective: 1400px; }
-.blanket { position: absolute; inset: 0; border-radius: 26px; transform: rotateX(52deg) rotateZ(-8deg); transform-style: preserve-3d;
-  background:
-    repeating-linear-gradient(90deg, transparent 0 46px, rgba(255,255,255,.16) 46px 50px),
-    repeating-linear-gradient(0deg, transparent 0 46px, rgba(255,255,255,.16) 46px 50px),
-    radial-gradient(120% 90% at 40% 30%, #a3d2f3, var(--blanket) 55%, var(--blanket-d));
-  box-shadow: 0 60px 80px -30px rgba(31,79,168,.45), inset 0 0 0 10px rgba(255,255,255,.35); }
-.blanket::after { content: ""; position: absolute; inset: 18px; border: 2px dashed rgba(255,255,255,.55); border-radius: 18px; }
-.slot-obj { position: absolute; transform-style: preserve-3d; transform: translate(-50%, -50%); width: 15%; aspect-ratio: 1; }
-.obj { position: absolute; inset: 0; border: 0; padding: 0; background: none; cursor: pointer; transform: rotateX(-52deg) translateY(var(--lift, 0)); transform-origin: 50% 100%; transition: transform .35s cubic-bezier(.2,.8,.2,1), filter .35s; }
-.obj svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 calc(14px - var(--sh, 0px)) 6px rgba(15,42,82,.28)); }
-.obj:hover, .obj:focus-visible { --lift: -18%; --sh: 10px; outline: none; }
-.obj .lbl { position: absolute; left: 50%; bottom: 104%; transform: translateX(-50%) translateY(8px); white-space: nowrap; font-family: var(--f-script); font-size: clamp(22px, 2.4vw, 34px); color: var(--ink); opacity: 0; transition: opacity .3s, transform .3s; pointer-events: none; }
-.obj:hover .lbl, .obj:focus-visible .lbl { opacity: 1; transform: translateX(-50%) translateY(0); }
-.obj.empty svg { opacity: .55; }
-.mine { position: absolute; right: max(24px, env(safe-area-inset-right, 0px)); top: 24px; width: min(240px, 34vw); z-index: 3; text-align: right; }
-.mine h3 { margin: 0 0 8px; font-family: var(--f-script); font-weight: 400; font-size: 30px; }
-.mine .row { display: flex; justify-content: flex-end; gap: 10px; }
-.mine button { width: 58px; height: 58px; border-radius: 14px; border: 0; background: rgba(255,255,255,.65); cursor: pointer; display: grid; place-items: center; transition: transform .3s; }
-.mine button:hover, .mine button:focus-visible { transform: translateY(-6px); outline: 2px solid var(--mid); }
-.mine svg { width: 38px; height: 38px; }
+/* ---------- 2 · planicie: la manta sobre el pasto, vista desde arriba ---------- */
+.p-inv { background: linear-gradient(180deg, #40be82 0%, #40be82 55%, #2fa468 100%); color: var(--ink); overflow: hidden; }
+.field { position: absolute; left: 50%; top: 50%; width: min(100vw, calc(100vh * 16 / 9)); aspect-ratio: 16 / 9; transform: translate(-50%, -50%); }
+.field > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; user-select: none; -webkit-user-drag: none; pointer-events: none;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent), linear-gradient(180deg, transparent, #000 9%, #000 91%, transparent); -webkit-mask-composite: source-in;
+  mask: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent), linear-gradient(180deg, transparent, #000 9%, #000 91%, transparent); mask-composite: intersect; }
+.spot { position: absolute; border: 0; padding: 0; background: none; cursor: pointer; }
+.spot .lift { position: absolute; inset: 0; background-image: url(boceto-proyectos.webp); background-repeat: no-repeat; opacity: 0;
+  -webkit-mask: radial-gradient(closest-side, #000 72%, transparent); mask: radial-gradient(closest-side, #000 72%, transparent);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), opacity .2s, filter .35s; }
+.spot::before { content: ""; position: absolute; left: 14%; right: 14%; bottom: 4%; height: 18%; border-radius: 50%; background: rgba(15,42,82,.0); filter: blur(6px); transition: background .35s; }
+.spot:hover .lift, .spot:focus-visible .lift { opacity: 1; transform: translateY(-9%) scale(1.07); filter: drop-shadow(0 10px 8px rgba(15,42,82,.22)); }
+.spot:hover::before, .spot:focus-visible::before { background: rgba(15,42,82,.16); }
+.spot:focus-visible { outline: none; }
+/* vida en la planicie: hojas que caen y pasto que se mece */
+.leaf { position: absolute; top: -6%; width: 14px; height: 26px; border-radius: 0 100% 0 100%; background: linear-gradient(135deg, #7fdc6a, #2f9a3e); opacity: .85; pointer-events: none; animation: fall linear infinite; }
+@keyframes fall { 0% { transform: translate(0, 0) rotate(0); } 50% { transform: translate(40px, 55vh) rotate(160deg); } 100% { transform: translate(-20px, 112vh) rotate(320deg); } }
+.tuft { position: absolute; bottom: -4px; width: 46px; height: 34px; pointer-events: none; transform-origin: 50% 100%; animation: sway 3.4s ease-in-out infinite alternate; }
+.tuft::before, .tuft::after { content: ""; position: absolute; bottom: 0; width: 7px; height: 100%; border-radius: 100% 0 0 0; background: #2f9a55; }
+.tuft::before { left: 12px; transform: rotate(-14deg); } .tuft::after { left: 24px; height: 80%; transform: rotate(12deg); background: #4cc37a; }
+@keyframes sway { from { transform: rotate(-5deg); } to { transform: rotate(6deg); } }
 .toast { position: absolute; left: 50%; bottom: 26px; transform: translate(-50%, 20px); background: var(--paper); color: var(--ink); padding: 12px 18px; border-radius: 12px; font-size: 14px; box-shadow: 0 12px 30px rgba(15,42,82,.2); opacity: 0; transition: .35s; z-index: 6; max-width: 86vw; text-align: center; }
 .toast.on { opacity: 1; transform: translate(-50%, 0); }
 .toast b { font-family: var(--f-script); font-weight: 400; font-size: 22px; margin-right: 6px; }
+@media (prefers-reduced-motion: reduce) { .leaf, .tuft { animation: none; } .leaf { display: none; } }
 
 /* ---------- 3 · recibo ---------- */
 .p-end { background: linear-gradient(180deg, #2a62bd 0%, var(--mid) 45%, #cfe7f8 100%); display: grid; grid-template-columns: 1.1fr .9fr; }
@@ -122,11 +118,6 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
   .vtitle { font-size: 36vw; right: 2vw; }
   .intro { font-size: 14px; max-width: 64%; bottom: 74px; }
   .hint { bottom: 32px; left: max(28px, env(safe-area-inset-left, 0px)); right: auto; }
-  .inv-head { top: 24px; } .mine { top: auto; bottom: 18px; right: 50%; transform: translateX(50%); width: auto; text-align: center; }
-  .mine .row { justify-content: center; } .mine h3 { font-size: 24px; margin: 0 0 4px; }
-  .stage3d { top: 50%; width: 112vw; }
-  .blanket { transform: rotateX(52deg) rotateZ(-4deg); }
-  .slot-obj { width: 17%; }
   .eyes-title { top: 28px; }
   .p-end { grid-template-columns: 1fr; grid-template-rows: 46% 54%; }
   .whisper { top: 12px; font-size: 22px; }
@@ -165,18 +156,9 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
       <p class="eyes-note">Boceto provisional. Aquí va tu ilustración del personaje mirando hacia arriba, con el cielo en los ojos.</p>
     </section>
 
-    <!-- 2 · inventario -->
-    <section class="panel p-inv" aria-labelledby="inv-t">
-      <div class="inv-head"><h2 id="inv-t">Inventario</h2><p>Pasa el cursor sobre un objeto. Tócalo para abrir el proyecto.</p></div>
-      <div class="mine" aria-label="Mis cosas">
-        <h3>Mis cosas</h3>
-        <div class="row">
-          <button type="button" data-say="El llavero de esqueleto: [COMPLETAR: lo que cuenta de ti]" aria-label="Llavero de esqueleto"><svg viewBox="0 0 40 40"><rect x="13" y="6" width="14" height="13" rx="2" fill="#cfd6df" stroke="#0f2a52" stroke-width="2"/><rect x="18" y="19" width="4" height="12" fill="#cfd6df" stroke="#0f2a52" stroke-width="2"/><rect x="12" y="31" width="16" height="4" rx="1" fill="#cfd6df" stroke="#0f2a52" stroke-width="2"/></svg></button>
-          <button type="button" data-say="El anillo de piedra azul: [COMPLETAR]" aria-label="Anillo"><svg viewBox="0 0 40 40"><circle cx="20" cy="24" r="10" fill="none" stroke="#0f2a52" stroke-width="4"/><rect x="13" y="6" width="14" height="10" rx="3" fill="#2b4bff" stroke="#0f2a52" stroke-width="2"/></svg></button>
-          <button type="button" data-say="El llavero de Lego: [COMPLETAR]" aria-label="Llavero de figura de bloques"><svg viewBox="0 0 40 40"><rect x="14" y="5" width="12" height="10" rx="3" fill="#e24a3b" stroke="#0f2a52" stroke-width="2"/><rect x="11" y="16" width="18" height="11" fill="#3a6fd8" stroke="#0f2a52" stroke-width="2"/><rect x="12" y="27" width="16" height="9" fill="#e24a3b" stroke="#0f2a52" stroke-width="2"/></svg></button>
-        </div>
-      </div>
-      <div class="stage3d"><div class="blanket" id="blanket"></div></div>
+    <!-- 2 · planicie de proyectos (boceto provisional de Nico) -->
+    <section class="panel p-inv" aria-label="Proyectos">
+      <div class="field" id="field"><img src="boceto-proyectos.webp" alt="Una manta clara sobre el pasto con los proyectos encima, dibujados a mano." draggable="false"></div>
       <div class="toast" id="toast" role="status"></div>
     </section>
 
@@ -268,42 +250,44 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
   frame();
 })();
 
-/* ---------- inventario ---------- */
+/* ---------- planicie: cada objeto del boceto se levanta al pasar y se abre al tocar ---------- */
 (function () {
-  const ink = '#0f2a52';
-  const ICONS = {
-    lata: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="88" rx="22" ry="6" fill="#9cc0dd"/><rect x="30" y="22" width="40" height="64" rx="8" fill="#e8eef4" stroke="${ink}" stroke-width="3"/><rect x="30" y="40" width="40" height="22" fill="#4f8fd9" stroke="${ink}" stroke-width="3"/><rect x="42" y="10" width="16" height="12" rx="3" fill="#fbfaf6" stroke="${ink}" stroke-width="3"/></svg>`,
-    peluche: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="90" rx="26" ry="6" fill="#9cc0dd"/><path d="M28 30 L22 10 L40 24Z M72 30 L78 10 L60 24Z" fill="#7a2b3a" stroke="${ink}" stroke-width="3"/><circle cx="50" cy="44" r="22" fill="#d9c9d6" stroke="${ink}" stroke-width="3"/><ellipse cx="50" cy="76" rx="20" ry="14" fill="#d9c9d6" stroke="${ink}" stroke-width="3"/><circle cx="42" cy="42" r="3" fill="${ink}"/><circle cx="58" cy="42" r="3" fill="${ink}"/></svg>`,
-    celular: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="90" rx="22" ry="5" fill="#9cc0dd"/><rect x="30" y="8" width="40" height="80" rx="9" fill="#1d2433" stroke="${ink}" stroke-width="3"/><rect x="35" y="16" width="30" height="64" rx="4" fill="#590FBC"/><text x="50" y="52" text-anchor="middle" font-family="Georgia" font-style="italic" font-size="11" fill="#fff">TRAMA</text></svg>`,
-    cd: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="88" rx="26" ry="6" fill="#9cc0dd"/><circle cx="50" cy="50" r="34" fill="#e9eef5" stroke="${ink}" stroke-width="3"/><circle cx="50" cy="50" r="34" fill="url(#cdg)" opacity=".7"/><circle cx="50" cy="50" r="9" fill="#c3e2f7" stroke="${ink}" stroke-width="3"/><defs><linearGradient id="cdg" x1="0" x2="1"><stop offset="0" stop-color="#ffc6f0"/><stop offset=".5" stop-color="#c8b8ff"/><stop offset="1" stop-color="#9fe8ff"/></linearGradient></defs></svg>`,
-    libreta: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="90" rx="26" ry="5" fill="#9cc0dd"/><rect x="24" y="14" width="52" height="72" rx="5" fill="#f2e6c9" stroke="${ink}" stroke-width="3"/><path d="M24 24 h-6 M24 38 h-6 M24 52 h-6 M24 66 h-6" stroke="${ink}" stroke-width="3"/><rect x="34" y="28" width="32" height="8" fill="#a9d6f5"/></svg>`,
-    libro: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="90" rx="28" ry="5" fill="#9cc0dd"/><rect x="20" y="16" width="60" height="70" rx="4" fill="#2a2f3a" stroke="${ink}" stroke-width="3"/><rect x="26" y="16" width="5" height="70" fill="#111"/><text x="55" y="54" text-anchor="middle" font-family="Georgia" font-style="italic" font-size="11" fill="#fbfaf6">Silencio</text></svg>`,
-    vacio: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="88" rx="22" ry="5" fill="#9cc0dd"/><rect x="26" y="26" width="48" height="56" rx="10" fill="none" stroke="${ink}" stroke-width="3" stroke-dasharray="7 6"/><text x="50" y="62" text-anchor="middle" font-family="Georgia" font-size="22" fill="${ink}">?</text></svg>`
-  };
-  const ITEMS = [
-    ['lata', 'Cueva Pintada', 'Rocías la lata para revelar las piezas.', 18, 30],
-    ['peluche', 'Satanæ', 'Giras el peluche de Baphomet.', 40, 24],
-    ['celular', 'TRAMA', 'Desbloqueas el celular y aparece el logo.', 62, 30],
-    ['cd', 'Proyecto de CDs', 'Pones el CD a girar.', 82, 26],
-    ['libreta', 'Proyectos varios', 'Pasas las hojas de la libreta.', 24, 66],
-    ['libro', 'Silencio', 'Pasas las páginas del libro.', 46, 70],
-    ['vacio', 'Rebranding', 'Objeto por definir.', 66, 66],
-    ['vacio', 'Bogotá 2027', 'Objeto por definir.', 84, 62],
-    ['vacio', 'Tercer Acto', 'Objeto por definir.', 12, 48],
-    ['vacio', 'Personajes', 'Objeto por definir.', 90, 44]
+  // zonas en píxeles sobre el boceto de 1920×1080: [nombre, x, y, ancho, alto, interacción]
+  const SPOTS = [
+    ['Cueva Pintada', 330, 280, 220, 260, 'Rocías la lata para revelar las piezas.'],
+    ['Satanae', 570, 460, 210, 180, 'Giras el peluche.'],
+    ['TRAMA', 440, 670, 320, 190, 'Desbloqueas el celular y aparece el logo.'],
+    ['[COMPLETAR: Japan 2027]', 1040, 410, 200, 200, 'Proyecto por confirmar.'],
+    ['Proyecto CD', 1280, 340, 400, 180, 'Pones el CD a girar.'],
+    ['Personajes', 1340, 620, 420, 190, 'Pasas las hojas.']
   ];
-  const blanket = document.getElementById('blanket'), toast = document.getElementById('toast');
+  const W = 1920, H = 1080;
+  const field = document.getElementById('field'), toast = document.getElementById('toast');
   let tt;
   const say = html => { toast.innerHTML = html; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 3200); };
-  ITEMS.forEach(([icon, name, what, x, y]) => {
-    const s = document.createElement('div'); s.className = 'slot-obj'; s.style.left = x + '%'; s.style.top = y + '%';
-    const b = document.createElement('button'); b.type = 'button'; b.className = 'obj' + (icon === 'vacio' ? ' empty' : '');
-    b.setAttribute('aria-label', name + ': abrir');
-    b.innerHTML = ICONS[icon] + `<span class="lbl">${name === 'Satanæ' ? 'Satanae' : name}</span>`;
-    b.addEventListener('click', () => say(`<b>${name === 'Satanæ' ? 'Satanae' : name}</b> ${what} (en el prototipo solo se anuncia)`));
-    s.appendChild(b); blanket.appendChild(s);
+  SPOTS.forEach(([name, x, y, w, h, what]) => {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'spot';
+    b.setAttribute('aria-label', name + ': abrir proyecto');
+    Object.assign(b.style, { left: x / W * 100 + '%', top: y / H * 100 + '%', width: w / W * 100 + '%', height: h / H * 100 + '%' });
+    const l = document.createElement('span'); l.className = 'lift';
+    Object.assign(l.style, { backgroundSize: `${W / w * 100}% ${H / h * 100}%`, backgroundPosition: `${x / (W - w) * 100}% ${y / (H - h) * 100}%` });
+    b.appendChild(l);
+    b.addEventListener('click', () => say(`<b>${name}</b> ${what} (en el prototipo solo se anuncia)`));
+    field.appendChild(b);
   });
-  document.querySelectorAll('.mine button').forEach(b => b.addEventListener('click', () => say(b.dataset.say)));
+  // hojas y pasto
+  const sec = field.parentElement;
+  for (let i = 0; i < 7; i++) {
+    const f = document.createElement('i'); f.className = 'leaf';
+    f.style.left = (8 + Math.random() * 84) + '%'; f.style.animationDuration = (9 + Math.random() * 8) + 's';
+    f.style.animationDelay = (-Math.random() * 14) + 's'; f.style.scale = .6 + Math.random() * .6;
+    sec.appendChild(f);
+  }
+  for (let i = 0; i < 14; i++) {
+    const t = document.createElement('i'); t.className = 'tuft';
+    t.style.left = (i / 14 * 100 + Math.random() * 4) + '%'; t.style.animationDelay = (-Math.random() * 3) + 's';
+    t.style.scale = .7 + Math.random() * .7; sec.appendChild(t);
+  }
 })();
 
 /* ---------- recibo: se imprime al llegar; se arrastra; doble toque lo arruga y lo alisa ---------- */
