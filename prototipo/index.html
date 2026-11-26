@@ -2,7 +2,7 @@
 <title>Recorrido rayt0o</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
-/* Recorrido horizontal: cielo → ojos → inventario → recibo → contacto. Un solo mundo claro (cielo de día). */
+/* Recorrido horizontal: cielo → ojos → contacto → proyectos. Un solo mundo claro (cielo de día). */
 @font-face { font-family: Portiso; font-style: italic; src: url(fonts/portiso-italic.woff2) format("woff2"); font-display: swap; }
 @font-face { font-family: OldMoney; src: url(fonts/oldmoney-script.otf) format("opentype"); font-display: swap; }
 @font-face { font-family: Instrument; font-weight: 400; src: url(fonts/instrument-sans-latin-400-normal.woff2) format("woff2"); font-display: swap; }
@@ -78,38 +78,64 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
 .tuft::before, .tuft::after { content: ""; position: absolute; bottom: 0; width: 7px; height: 100%; border-radius: 100% 0 0 0; background: #2f9a55; }
 .tuft::before { left: 12px; transform: rotate(-14deg); } .tuft::after { left: 24px; height: 80%; transform: rotate(12deg); background: #4cc37a; }
 @keyframes sway { from { transform: rotate(-5deg); } to { transform: rotate(6deg); } }
-.toast { position: absolute; left: 50%; bottom: 26px; transform: translate(-50%, 20px); background: var(--paper); color: var(--ink); padding: 12px 18px; border-radius: 12px; font-size: 14px; box-shadow: 0 12px 30px rgba(15,42,82,.2); opacity: 0; transition: .35s; z-index: 6; max-width: 86vw; text-align: center; }
+.toast { position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 20px); background: var(--paper); color: var(--ink); padding: 12px 18px; border-radius: 12px; font-size: 14px; box-shadow: 0 12px 30px rgba(15,42,82,.2); opacity: 0; transition: .35s; z-index: 6; max-width: 86vw; text-align: center; }
 .toast.on { opacity: 1; transform: translate(-50%, 0); }
 .toast b { font-family: var(--f-script); font-weight: 400; font-size: 22px; margin-right: 6px; }
 @media (prefers-reduced-motion: reduce) { .leaf, .tuft { animation: none; } .leaf { display: none; } }
 
-/* ---------- 3 · recibo ---------- */
-.p-end { background: linear-gradient(180deg, #2a62bd 0%, var(--mid) 45%, #cfe7f8 100%); display: grid; grid-template-columns: 1.1fr .9fr; }
-.hero3d { position: relative; height: 100%; }
+/* ---------- 2 · contacto: pradera bajo el cielo, personaje + dos recibos + mis cosas ---------- */
+.p-end { background: linear-gradient(180deg, #1d56b8 0%, #2f6fd0 38%, #6aa6e6 62%, #cfe5f7 72%); color: var(--ink); }
+.p-end .mc { position: absolute; border-radius: 50%; background: #fff; filter: url(#fluff); opacity: .95; }
+.p-end .mc::before, .p-end .mc::after { content: ""; position: absolute; border-radius: 50%; background: #fff; }
+.mc1 { width: 46vw; height: 16vw; left: 18vw; top: 38%; animation: drift 70s linear infinite alternate; }
+.mc1::before { width: 20vw; height: 24vw; left: 10vw; top: -16vw; } .mc1::after { width: 16vw; height: 16vw; left: 24vw; top: -9vw; }
+.mc2 { width: 40vw; height: 14vw; right: -8vw; top: 44%; animation: drift 85s linear infinite alternate-reverse; }
+.mc2::before { width: 16vw; height: 16vw; left: 8vw; top: -9vw; } .mc2::after { width: 12vw; height: 12vw; left: 20vw; top: -5vw; }
+.mc3 { width: 30vw; height: 10vw; left: -8vw; top: 52%; }
+.mc3::before { width: 12vw; height: 12vw; left: 6vw; top: -6vw; } .mc3::after { width: 9vw; height: 9vw; left: 15vw; top: -4vw; }
+.hill { position: absolute; left: -10%; right: -10%; top: 66%; bottom: 0; border-radius: 60% 40% 0 0 / 22% 14% 0 0;
+  background: linear-gradient(180deg, #9ccc4c 0%, #86bd43 30%, #6aa83a 100%); }
+.hill::after { content: ""; position: absolute; inset: 0; border-radius: inherit; opacity: .35; background: radial-gradient(60% 40% at 30% 30%, #c4e06a, transparent 70%), radial-gradient(40% 30% at 80% 60%, #4f8f2f, transparent 70%); }
+.hero3d { position: absolute; left: 0; top: 4%; bottom: 4%; width: 32%; z-index: 2; }
 #c3d { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
-.whisper { position: absolute; left: 50%; top: 9%; transform: translateX(-50%); margin: 0; font-family: var(--f-script); font-size: 28px; color: var(--ink); pointer-events: none; transition: opacity .3s; }
-.side { position: relative; height: 100%; }
-.side .printer { top: 8%; } .side .rec-wrap { top: calc(8% + 36px); }
-.receipt .about { margin: 0; white-space: normal; }
-.receipt .links a { display: flex; justify-content: space-between; color: inherit; text-decoration: none; padding: 2px 0; }
-.receipt .links a:hover, .receipt .links a:focus-visible { background: #111; color: #fffef9; outline: none; }
-.printer { position: absolute; left: 50%; top: 9%; width: min(360px, 78vw); height: 46px; transform: translateX(-50%); border-radius: 14px; background: #eef2f6; box-shadow: inset 0 -6px 0 #cfd8e2, 0 10px 30px rgba(15,42,82,.25); z-index: 3; }
-.printer::after { content: ""; position: absolute; left: 7%; right: 7%; bottom: 10px; height: 4px; border-radius: 2px; background: #2a3a52; }
-.rec-wrap { position: absolute; left: 50%; top: calc(9% + 36px); width: min(320px, 70vw); transform: translateX(-50%); z-index: 2; }
-.receipt { position: relative; background: #fffef9; color: #111; font-family: var(--f-mono); font-size: 12.5px; line-height: 1.55; padding: 22px 22px 30px; cursor: grab; touch-action: none;
-  clip-path: inset(0 0 100% 0); transition: clip-path 2.6s steps(26), transform .5s, filter .5s;
-  box-shadow: 0 18px 40px rgba(15,42,82,.25);
-  -webkit-mask: radial-gradient(7px at 50% 100%, transparent 98%, #000) 0 100% / 14px 100% repeat-x; mask: radial-gradient(7px at 50% 100%, transparent 98%, #000) 0 100% / 14px 100% repeat-x; }
+.whisper { position: absolute; left: 50%; top: 2%; transform: translateX(-50%); margin: 0; font-family: var(--f-script); font-size: 28px; color: var(--paper); pointer-events: none; white-space: nowrap; }
+.recs { position: absolute; left: 31%; width: 42%; top: 5%; bottom: 6%; z-index: 3; }
+.receipt { position: absolute; top: 0; width: min(300px, 47%); color: #1b1b1b; font-family: var(--f-mono); font-size: 11.5px; line-height: 1.5; padding: 20px 18px 26px; cursor: grab; touch-action: none; text-transform: uppercase;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.018' numOctaves='4' seed='7'/%3E%3CfeDiffuseLighting lighting-color='%23fff' surfaceScale='2.2'%3E%3CfeDistantLight azimuth='45' elevation='58'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"), #f1f1ee; background-size: 320px; background-blend-mode: multiply;
+  transform: rotate(var(--rot, 0deg)) scale(var(--sc, 1)); clip-path: inset(0 0 100% 0); transition: clip-path 2.4s steps(24), transform .5s, filter .5s;
+  filter: drop-shadow(0 16px 18px rgba(15,42,82,.28));
+  -webkit-mask: radial-gradient(6px at 50% 100%, transparent 98%, #000) 0 100% / 12px 100% repeat-x; mask: radial-gradient(6px at 50% 100%, transparent 98%, #000) 0 100% / 12px 100% repeat-x; }
+.receipt.r1 { left: 2%; top: 4%; --rot: -5deg; }
+.receipt.r2 { right: 2%; top: 0; --rot: 6deg; transition-delay: .5s; }
 .receipt.printed { clip-path: inset(0 0 0 0); }
-.receipt.dragging { cursor: grabbing; transition: clip-path 2.6s steps(26), filter .5s; }
-.receipt.crumpled { filter: url(#crumple) drop-shadow(0 10px 10px rgba(0,0,0,.25)); transform: scale(.72) rotate(-9deg); }
-.receipt h4 { margin: 0; text-align: center; font-family: var(--f-script); font-weight: 400; font-size: 30px; line-height: 1.1; }
+.receipt.dragging { cursor: grabbing; transition: clip-path 2.4s steps(24), filter .5s; z-index: 4; }
+.receipt.crumpled { --sc: .7; filter: url(#crumple) drop-shadow(0 10px 10px rgba(0,0,0,.25)); }
+.receipt .brand { margin: 0; text-align: center; font-family: var(--f-text); font-weight: 700; font-size: 26px; letter-spacing: -.01em; }
+.receipt h4 { margin: 0; text-align: center; font-family: var(--f-script); font-weight: 400; font-size: 28px; line-height: 1.1; text-transform: none; }
+.receipt .ico { display: block; width: 34px; margin: 0 auto 4px; }
 .receipt .c { text-align: center; }
-.receipt hr { border: 0; border-top: 1px dashed #111; margin: 10px 0; }
+.receipt hr { border: 0; border-top: 1px dashed #1b1b1b; margin: 8px 0; }
 .receipt table { width: 100%; border-collapse: collapse; color: inherit; font: inherit; }
+.receipt td { vertical-align: top; padding: 0 0 1px; } .receipt td:first-child { width: 2.2em; }
 .receipt td:last-child { text-align: right; }
-.receipt .tot td { font-weight: 700; font-size: 14px; }
-.barcode { height: 46px; margin-top: 12px; background: repeating-linear-gradient(90deg, #111 0 2px, transparent 2px 4px, #111 4px 5px, transparent 5px 8px, #111 8px 11px, transparent 11px 12px); }
+.receipt .tot td { font-weight: 700; }
+.receipt .about { margin: 0; text-transform: none; }
+.receipt .links a { display: flex; justify-content: space-between; color: inherit; text-decoration: none; padding: 1px 0; }
+.receipt .links a:hover, .receipt .links a:focus-visible { background: #1b1b1b; color: #f1f1ee; outline: none; }
+.barcode { height: 40px; margin-top: 10px; background: repeating-linear-gradient(90deg, #1b1b1b 0 2px, transparent 2px 4px, #1b1b1b 4px 5px, transparent 5px 8px, #1b1b1b 8px 11px, transparent 11px 12px); }
+/* mis cosas: dibujos sueltos a mano, como en el boceto */
+.things { position: absolute; right: 0; top: 4%; bottom: 10%; width: 27%; z-index: 2; }
+.thing { position: absolute; border: 0; padding: 0; background: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; color: var(--c); transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+.thing svg { width: var(--w); height: auto; overflow: visible; filter: drop-shadow(0 0 0 transparent); transition: filter .35s; }
+.thing span { text-shadow: 0 1px 0 rgba(15,42,82,.45), 0 0 12px rgba(15,42,82,.25); font-family: var(--f-script); font-size: clamp(26px, 3vw, 44px); line-height: 1; white-space: nowrap; }
+.thing:hover, .thing:focus-visible { transform: translateY(-8px) rotate(-3deg); outline: none; }
+.thing:hover svg, .thing:focus-visible svg { filter: drop-shadow(0 8px 6px rgba(15,42,82,.25)); }
+.til { position: relative; } .til::after { content: ""; position: absolute; left: 18%; right: 8%; top: .06em; height: .1em; border-top: .05em solid currentColor; border-radius: 50%; transform: skewX(-20deg) rotate(-6deg); }
+.t-dado { left: 4%; top: 2%; --c: #2fe0d0; --w: clamp(70px, 8vw, 130px); }
+.t-lego { right: 4%; top: 6%; --c: #173fa8; --w: clamp(80px, 10vw, 160px); }
+.t-llavero { right: 10%; top: 50%; --c: #3ff0de; --w: clamp(56px, 6vw, 96px); }
+.grass-front { position: absolute; left: 0; right: 0; bottom: 0; height: 30%; width: 100%; z-index: 5; pointer-events: none; }
+
 
 
 @media (max-width: 700px) {
@@ -119,11 +145,21 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
   .intro { font-size: 14px; max-width: 64%; bottom: 74px; }
   .hint { bottom: 32px; left: max(28px, env(safe-area-inset-left, 0px)); right: auto; }
   .eyes-title { top: 28px; }
-  .p-end { grid-template-columns: 1fr; grid-template-rows: 46% 54%; }
-  .whisper { top: 12px; font-size: 22px; }
-  .side .printer { top: 0; width: 74vw; } .side .rec-wrap { top: 30px; width: 66vw; max-height: calc(100% - 36px); overflow: auto; }
-  .receipt { font-size: 11px; padding: 16px 16px 24px; }
+  .hero3d { width: 46%; top: 6%; bottom: 46%; }
+  .whisper { font-size: 20px; }
+  .things { width: 54%; top: 6%; bottom: 52%; } .t-llavero { top: 62%; right: 34%; }
+  .recs { left: 3%; width: 94%; top: 40%; bottom: 2%; }
+  .receipt { font-size: 9px; padding: 12px 10px 18px; width: 50%; }
+  .receipt .brand { font-size: 18px; } .receipt h4 { font-size: 20px; }
+  .grass-front { height: 18%; }
 }
+@media (max-height: 520px) and (orientation: landscape) {
+  .recs { top: 3%; bottom: 2%; }
+  .receipt { font-size: 7.4px; line-height: 1.35; padding: 10px 10px 14px; width: 46%; }
+  .receipt .brand { font-size: 16px; } .receipt h4 { font-size: 17px; } .receipt .ico { width: 20px; } .barcode { height: 22px; }
+  .grass-front { height: 16%; }
+}
+@media (max-width: 700px) and (orientation: portrait) { .receipt { font-size: 8.4px; } }
 @media (prefers-reduced-motion: reduce) { .cloud, .hint i { animation: none; } .receipt { transition: none; } }
 </style>
 
@@ -156,46 +192,77 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
       <p class="eyes-note">Boceto provisional. Aquí va tu ilustración del personaje mirando hacia arriba, con el cielo en los ojos.</p>
     </section>
 
-    <!-- 2 · planicie de proyectos (boceto provisional de Nico) -->
-    <section class="panel p-inv" aria-label="Proyectos">
-      <div class="field" id="field"><img src="boceto-proyectos.webp" alt="Una manta clara sobre el pasto con los proyectos encima, dibujados a mano." draggable="false"></div>
-      <div class="toast" id="toast" role="status"></div>
-    </section>
-
-    <!-- 3 · final: personaje + recibo -->
-    <section class="panel p-end" aria-label="Contacto">
+    <!-- 2 · contacto: personaje + recibos + mis cosas, en la pradera -->
+    <section class="panel p-end" aria-label="Contacto y presentación">
+      <div class="mc mc3"></div><div class="mc mc1"></div><div class="mc mc2"></div>
+      <div class="hill" aria-hidden="true"></div>
       <div class="hero3d"><canvas id="c3d" aria-label="Tu personaje caminando. Arrástralo para girarlo entre cuatro vistas."></canvas><p class="whisper" id="viewname">Frente</p></div>
-      <div class="side">
-        <div class="printer" aria-hidden="true"></div>
-        <div class="rec-wrap">
-          <div class="receipt" id="receipt" tabindex="0" aria-label="Recibo con la información de Nicolás Torres. Se puede arrastrar.">
-          <h4>Nicol<span class="acc">a</span>s Torres</h4>
-          <div class="c">RAYT0O · BOGOTÁ<br>ORDEN #0001 · 2026</div>
+      <div class="recs">
+        <div class="receipt r1" tabindex="0" aria-label="Recibo de lo que hago. Se puede arrastrar.">
+          <p class="brand">RAYT0O</p>
+          <div class="c">PORTAFOLIO</div>
+          <div>ORDEN #0001 PARA TI<br>BOGOTÁ · 2026</div>
           <hr>
-          <table>
-            <tr><td>BRANDING</td><td>x1</td></tr>
-            <tr><td>ILUSTRACIÓN</td><td>x1</td></tr>
-            <tr><td>3D</td><td>x1</td></tr>
-            <tr><td>MOTION</td><td>x1</td></tr>
+          <table><tr><td>QTY</td><td>ITEM</td><td></td></tr>
+            <tr><td>01</td><td>BRANDING</td><td>x1</td></tr>
+            <tr><td>02</td><td>ILUSTRACIÓN</td><td>x1</td></tr>
+            <tr><td>03</td><td>3D</td><td>x1</td></tr>
+            <tr><td>04</td><td>MOTION</td><td>x1</td></tr>
+            <tr><td>05</td><td>ILLUSTRATOR</td><td>✓</td></tr>
+            <tr><td>06</td><td>PHOTOSHOP</td><td>✓</td></tr>
+            <tr><td>07</td><td>AFFINITY</td><td>✓</td></tr>
+            <tr><td>08</td><td>BLENDER</td><td>✓</td></tr>
           </table>
           <hr>
-          <table>
-            <tr><td>ILLUSTRATOR</td><td>✓</td></tr><tr><td>PHOTOSHOP</td><td>✓</td></tr><tr><td>AFFINITY</td><td>✓</td></tr><tr><td>BLENDER</td><td>✓</td></tr>
+          <table><tr class="tot"><td></td><td>TOTAL</td><td>1 DISEÑADOR</td></tr></table>
+          <hr>
+          <div class="c">GRACIAS POR VISITAR</div>
+          <div class="barcode" aria-hidden="true"></div>
+          <div class="c">rayt0o.github.io</div>
+        </div>
+        <div class="receipt r2" tabindex="0" aria-label="Recibo de presentación y contacto de Nicolás Torres. Se puede arrastrar.">
+          <img class="ico" src="logo.svg" alt="">
+          <h4>Nicol<span class="acc">a</span>s Torres</h4>
+          <div class="c">USER RAYT0O</div>
+          <div>ORDEN #0002 PARA TI</div>
+          <hr>
+          <table><tr><td>QTY</td><td>ITEM</td><td>ABOUT</td></tr>
+            <tr><td>01</td><td>NOMBRE</td><td>NICOLÁS</td></tr>
+            <tr><td>02</td><td>ALIAS</td><td>RAYT0O</td></tr>
+            <tr><td>03</td><td>OFICIO</td><td>DISEÑADOR</td></tr>
+            <tr><td>04</td><td>DE</td><td>BOGOTÁ</td></tr>
+            <tr><td>05</td><td>IDIOMAS</td><td>ES · EN</td></tr>
+            <tr><td>06</td><td>GUSTOS</td><td>GAMING · 3D</td></tr>
           </table>
           <hr>
           <p class="about">[COMPLETAR: frase corta de presentación]</p>
           <hr>
-          <table><tr><td>IDIOMAS</td><td>ES · EN</td></tr><tr><td>CIUDAD</td><td>BOGOTÁ</td></tr></table>
-          <hr>
-          <table><tr class="tot"><td>TOTAL</td><td>1 DISEÑADOR</td></tr></table>
-          <hr>
-          <div class="links"><a href="https://instagram.com/rayt0o" target="_blank" rel="noopener">INSTAGRAM ··· @RAYT0O</a><a href="https://www.behance.net/gallery/194131263/Portafolio-Diseno-Grafico" target="_blank" rel="noopener">BEHANCE ··· RAYT0O</a><a href="#" id="mail">CORREO ··· COPIAR</a></div><div class="c">TORRESNICOLAS162@GMAIL.COM<br>GRACIAS POR VER</div>
+          <div class="links"><a href="https://instagram.com/rayt0o" target="_blank" rel="noopener">INSTAGRAM ··· @RAYT0O</a><a href="https://www.behance.net/gallery/194131263/Portafolio-Diseno-Grafico" target="_blank" rel="noopener">BEHANCE ··· RAYT0O</a><a href="#" id="mail">CORREO ··· COPIAR</a></div>
+          <div class="c">TORRESNICOLAS162@GMAIL.COM</div>
           <div class="barcode" aria-hidden="true"></div>
         </div>
-        </div>
       </div>
+      <div class="things" aria-label="Mis cosas">
+        <button type="button" class="thing t-dado" data-say="El dado: [COMPLETAR: lo que cuenta de ti]"><span>Dado</span>
+          <svg viewBox="0 0 100 90" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 30 L58 22 L90 34 L42 44 Z"/><path d="M10 30 L12 74 L44 86 L42 44"/><path d="M44 86 L88 72 L90 34"/><path d="M8 33 l2 -4 M60 20 l-3 3" opacity=".6"/></svg></button>
+        <button type="button" class="thing t-lego" data-say="El muñeco Lego (va en 3D): [COMPLETAR: lo que cuenta de ti]">
+          <svg viewBox="0 0 100 130" fill="currentColor" stroke="currentColor" stroke-width="4" stroke-linejoin="round"><rect x="38" y="4" width="24" height="20" rx="6" opacity=".55"/><path d="M26 30 h48 l8 46 h-64 z" opacity=".35"/><path d="M26 30 l-12 34 M74 30 l12 34" fill="none" stroke-width="10" stroke-linecap="round" opacity=".5"/><path d="M20 78 h60 v44 h-26 v-28 h-8 v28 h-26 z" opacity=".75"/></svg>
+          <span>Mu<span class="til">n</span>eco Lego</span></button>
+        <button type="button" class="thing t-llavero" data-say="El llavero: [COMPLETAR: lo que cuenta de ti]">
+          <svg viewBox="0 0 80 110" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"><circle cx="40" cy="20" r="14"/><path d="M40 34 v10"/><rect x="22" y="44" width="36" height="56" rx="10"/><circle cx="40" cy="62" r="5"/></svg>
+          <span>Llavero</span></button>
+      </div>
+      <svg class="grass-front" id="grassFront" viewBox="0 0 1600 300" preserveAspectRatio="none" aria-hidden="true"></svg>
     </section>
+
+    <!-- 3 · planicie de proyectos (boceto provisional de Nico) -->
+    <section class="panel p-inv" aria-label="Proyectos">
+      <div class="field" id="field"><img src="boceto-proyectos.webp" alt="Una manta clara sobre el pasto con los proyectos encima, dibujados a mano." draggable="false"></div>
+    </section>
+
   </div>
+
+  <div class="toast" id="toast" role="status"></div>
 
   <!-- 0 · cielo de portada, encima de todo hasta que la cámara se aleja -->
   <div id="sky" class="sky-bg">
@@ -290,18 +357,31 @@ body { background: var(--deep); color: var(--paper); font-family: var(--f-text);
   }
 })();
 
-/* ---------- recibo: se imprime al llegar; se arrastra; doble toque lo arruga y lo alisa ---------- */
+/* ---------- contacto: los recibos se imprimen al llegar, se arrastran y con doble toque se arrugan ---------- */
 (function () {
-  const r = document.getElementById('receipt'); r.setAttribute('data-nonav', '');
+  const recs = [...document.querySelectorAll('.receipt')];
   let printed = false;
-  addEventListener('stop', e => { if (!printed && Math.abs(e.detail - 3) < .35) { printed = true; r.classList.add('printed'); } });
-  r.addEventListener('dblclick', () => r.classList.toggle('crumpled'));
+  addEventListener('stop', e => { if (!printed && Math.abs(e.detail - 2) < .35) { printed = true; recs.forEach(r => r.classList.add('printed')); } });
   const mail = document.getElementById('mail');
   mail.addEventListener('click', e => { e.preventDefault(); navigator.clipboard?.writeText('torresnicolas162@gmail.com').then(() => { mail.textContent = 'CORREO ··· COPIADO'; }).catch(() => {}); });
-  let ox = 0, oy = 0, dx = 0, dy = 0, drag = false, moved = false;
-  r.addEventListener('pointerdown', e => { if (e.target.closest('a')) return; drag = true; moved = false; ox = e.clientX - dx; oy = e.clientY - dy; r.setPointerCapture(e.pointerId); r.classList.add('dragging'); e.stopPropagation(); });
-  r.addEventListener('pointermove', e => { if (!drag) return; moved = true; dx = e.clientX - ox; dy = e.clientY - oy; r.style.translate = `${dx}px ${dy}px`; r.style.rotate = (dx / 40) + 'deg'; });
-  r.addEventListener('pointerup', () => { drag = false; r.classList.remove('dragging'); });
+  let z = 4;
+  recs.forEach(r => {
+    r.setAttribute('data-nonav', '');
+    r.addEventListener('dblclick', () => r.classList.toggle('crumpled'));
+    let ox = 0, oy = 0, dx = 0, dy = 0, drag = false;
+    r.addEventListener('pointerdown', e => { if (e.target.closest('a')) return; drag = true; ox = e.clientX - dx; oy = e.clientY - dy; r.setPointerCapture(e.pointerId); r.classList.add('dragging'); r.style.zIndex = ++z; e.stopPropagation(); });
+    r.addEventListener('pointermove', e => { if (!drag) return; dx = e.clientX - ox; dy = e.clientY - oy; r.style.translate = `${dx}px ${dy}px`; r.style.rotate = (dx / 40) + 'deg'; });
+    r.addEventListener('pointerup', () => { drag = false; r.classList.remove('dragging'); });
+  });
+  const toast = document.getElementById('toast'); let tt;
+  document.querySelectorAll('.thing').forEach(b => b.addEventListener('click', () => { toast.textContent = b.dataset.say; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 3200); }));
+  // pasto de adelante: trazos largos y ondulados, como pinceladas
+  const g = document.getElementById('grassFront'); let d = '';
+  for (let i = 0; i < 70; i++) {
+    const x = i * 23 + Math.random() * 14, h = 90 + Math.random() * 190, lean = (Math.random() - .5) * 60;
+    d += `<path d="M${x} 300 C${x + lean * .3} ${300 - h * .4} ${x + lean * .9} ${300 - h * .7} ${x + lean} ${300 - h}" stroke="${['#3fbf86', '#2fae74', '#55cf95'][i % 3]}" stroke-width="${8 + Math.random() * 10}" fill="none" stroke-linecap="round" opacity=".78"/>`;
+  }
+  g.innerHTML = d;
 })();
 </script>
 
@@ -311,7 +391,7 @@ import * as THREE from 'three';
 const cv = document.getElementById('c3d'); cv.setAttribute('data-nonav', '');
 const label = document.getElementById('viewname');
 let started = false;
-addEventListener('stop', e => { if (!started && e.detail > 2.3) { started = true; init(); } });
+addEventListener('stop', e => { if (!started && e.detail > 1.3) { started = true; init(); } });
 function init() {
   const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
   r.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -322,20 +402,20 @@ function init() {
   const ramp = new THREE.DataTexture(new Uint8Array([90, 170, 255]), 3, 1, THREE.RedFormat); ramp.needsUpdate = true; ramp.minFilter = ramp.magFilter = THREE.NearestFilter;
   const toon = c => new THREE.MeshToonMaterial({ color: c, gradientMap: ramp });
   const outline = (m, k = 1.06) => { const o = new THREE.Mesh(m.geometry, new THREE.MeshBasicMaterial({ color: 0x0f2a52, side: THREE.BackSide })); o.scale.setScalar(k); m.add(o); return m; };
-  // todo gira junto: personaje + su pedacito de mundo
+  // todo gira junto: el personaje y su sombra en el pasto
   const world = new THREE.Group(); scene.add(world);
-  const island = outline(new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2, .7, 8), toon(0x8cc4ec)), 1.02); island.position.y = -.35; world.add(island);
-  const top = new THREE.Mesh(new THREE.CylinderGeometry(2.35, 2.35, .04, 8), toon(0xe9f4fc)); world.add(top);
-  [[-1.6, 2.6, -1.4], [1.8, 3.2, -1.2], [1.4, .5, 1.6]].forEach(([x, y, z]) => { const c = new THREE.Group(); for (let k = 0; k < 3; k++) { const m = outline(new THREE.Mesh(new THREE.IcosahedronGeometry(.32 + k * .08, 0), toon(0xffffff)), 1.05); m.position.set(k * .38 - .38, 0, 0); c.add(m); } c.position.set(x, y, z); world.add(c); });
-  // personaje provisional (lo reemplaza tu modelo low-poly con texturas pintadas)
+  const shadow = new THREE.Mesh(new THREE.CircleGeometry(.9, 24), new THREE.MeshBasicMaterial({ color: 0x1f4f2a, transparent: true, opacity: .25 })); shadow.rotation.x = -Math.PI / 2; shadow.position.y = .01; world.add(shadow);
+  // personaje provisional como el boceto: pelo blanco, camiseta blanca, pantalón ancho azul (lo reemplaza tu modelo)
   const hero = new THREE.Group(); world.add(hero);
-  const body = outline(new THREE.Mesh(new THREE.CapsuleGeometry(.42, .7, 3, 6), toon(0x2b4bff))); body.position.y = 1.15; hero.add(body);
-  const head = outline(new THREE.Mesh(new THREE.IcosahedronGeometry(.5, 1), toon(0xf4efe6))); head.position.y = 2.05; hero.add(head);
-  const hair = new THREE.Mesh(new THREE.IcosahedronGeometry(.53, 1), toon(0x0f2a52)); hair.scale.set(1, .62, 1); hair.position.set(0, 2.23, -.04); hero.add(hair);
-  [-.18, .18].forEach(x => { const e = new THREE.Mesh(new THREE.SphereGeometry(.07, 8, 6), new THREE.MeshBasicMaterial({ color: 0x4f8fd9 })); e.position.set(x, 2.08, .46); hero.add(e); });
-  const bag = outline(new THREE.Mesh(new THREE.BoxGeometry(.5, .55, .22), toon(0xfbfaf6))); bag.position.set(0, 1.2, -.42); hero.add(bag);
-  const legs = [-.18, .18].map(x => { const l = outline(new THREE.Mesh(new THREE.BoxGeometry(.2, .6, .2), toon(0x0f2a52))); l.geometry.translate(0, -.3, 0); l.position.set(x, .62, 0); hero.add(l); return l; });
-  const arms = [-.5, .5].map(x => { const a = outline(new THREE.Mesh(new THREE.BoxGeometry(.16, .55, .16), toon(0x2b4bff))); a.geometry.translate(0, -.26, 0); a.position.set(x, 1.5, 0); hero.add(a); return a; });
+  const body = outline(new THREE.Mesh(new THREE.CapsuleGeometry(.4, .45, 3, 6), toon(0xfbfaf6))); body.position.y = 1.3; hero.add(body);
+  const neck = new THREE.Mesh(new THREE.CylinderGeometry(.12, .14, .2, 6), toon(0xf1c9a0)); neck.position.y = 1.95; hero.add(neck);
+  const head = outline(new THREE.Mesh(new THREE.IcosahedronGeometry(.42, 1), toon(0xf1c9a0))); head.position.y = 2.36; hero.add(head);
+  const hair = new THREE.Group(); hair.position.y = 2.53; hero.add(hair);
+  const hairBase = outline(new THREE.Mesh(new THREE.IcosahedronGeometry(.47, 1), toon(0xffffff)), 1.05); hairBase.scale.set(1, .7, 1.05); hairBase.position.z = -.06; hair.add(hairBase);
+  for (let k = 0; k < 9; k++) { const sp = outline(new THREE.Mesh(new THREE.ConeGeometry(.13, .42, 4), toon(0xffffff)), 1.08); const a = k / 9 * Math.PI * 2; sp.position.set(Math.cos(a) * .36, .1 + Math.random() * .08, Math.sin(a) * .36 - .04); sp.rotation.set(Math.sin(a) * .9, 0, -Math.cos(a) * .9); hair.add(sp); }
+  [-.15, .15].forEach(x => { const e = new THREE.Mesh(new THREE.SphereGeometry(.055, 8, 6), new THREE.MeshBasicMaterial({ color: 0x0f2a52 })); e.position.set(x, 2.36, .39); hero.add(e); });
+  const legs = [-.2, .2].map(x => { const l = outline(new THREE.Mesh(new THREE.CylinderGeometry(.2, .27, .95, 6), toon(0x173fa8))); l.geometry.translate(0, -.47, 0); l.position.set(x, 1.0, 0); hero.add(l); return l; });
+  const arms = [-.5, .5].map(x => { const a = outline(new THREE.Mesh(new THREE.CylinderGeometry(.09, .08, .75, 6), toon(0xf1c9a0))); a.geometry.translate(0, -.36, 0); a.position.set(x, 1.72, 0); const sl = new THREE.Mesh(new THREE.CylinderGeometry(.14, .14, .26, 6), toon(0xfbfaf6)); sl.position.y = -.08; a.add(sl); hero.add(a); return a; });
   // 4 vistas: frente, perfil derecho, detrás, perfil izquierdo
   const NAMES = ['Frente', 'Perfil derecho', 'Detrás', 'Perfil izquierdo'];
   let yaw = 0, target = 0, drag = false, lx = 0, sY = 0;
@@ -344,14 +424,13 @@ function init() {
   cv.addEventListener('pointermove', e => { if (!drag) return; target = sY - (e.clientX - lx) * .009; });
   cv.addEventListener('pointerup', () => { if (!drag) return; drag = false; cv.style.cursor = 'grab'; const d = target - sY; if (Math.abs(d) > .15 && Math.abs(d) < Math.PI / 4) target = sY + Math.sign(d) * Math.PI / 2; snap(); });
   cv.addEventListener('keydown', e => { if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.stopPropagation(); } });
-  const fit = () => { const w = cv.clientWidth, h = cv.clientHeight; r.setSize(w, h, false); cam.aspect = w / h; cam.position.set(0, 2.2, 12.5 * Math.max(1, .9 / cam.aspect)); cam.lookAt(0, .9, 0); cam.updateProjectionMatrix(); };
+  const fit = () => { const w = cv.clientWidth, h = cv.clientHeight; r.setSize(w, h, false); cam.aspect = w / h; cam.position.set(0, 1.6, 9.6 * Math.max(1, .55 / cam.aspect)); cam.lookAt(0, 1.35, 0); cam.updateProjectionMatrix(); };
   fit(); new ResizeObserver(fit).observe(cv);
   const clock = new THREE.Clock();
   (function loop() {
     const t = clock.getElapsedTime(), w = Math.sin(t * 6);
-    legs[0].rotation.x = w * .6; legs[1].rotation.x = -w * .6; arms[0].rotation.x = -w * .5; arms[1].rotation.x = w * .5;
+    legs[0].rotation.x = w * .45; legs[1].rotation.x = -w * .45; arms[0].rotation.x = -w * .5; arms[1].rotation.x = w * .5;
     hero.position.y = Math.abs(Math.cos(t * 6)) * .06;
-    top.material.map = null;
     yaw += (target - yaw) * .12; world.rotation.y = yaw;
     r.render(scene, cam);
     requestAnimationFrame(loop);
